@@ -23,7 +23,7 @@ namespace AutoServers
                 string exePath1 = @"C:\SERVER9-HARD\Torch.Server.exe";
                 string exePath2 = @"C:\SERVER11-GALAXY2\Torch.Server.exe";
                 string exePath3 = @"C:\TORCH-Server_14\Torch.Server.exe";
-                string filePath = @"G:\Logs Server AutoStart\";
+                string filePath = @"G:\Logs Server AutoStart";
                 StringBuilder lg = new StringBuilder();
                 if (isRunning == true)
                 {

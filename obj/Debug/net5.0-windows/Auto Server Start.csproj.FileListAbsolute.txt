@@ -1,0 +1,16 @@
+H:\Documents\GitHub\Auto-Server-Starts\bin\Debug\net5.0-windows\Auto Server Start.exe
+H:\Documents\GitHub\Auto-Server-Starts\bin\Debug\net5.0-windows\Auto Server Start.deps.json
+H:\Documents\GitHub\Auto-Server-Starts\bin\Debug\net5.0-windows\Auto Server Start.runtimeconfig.json
+H:\Documents\GitHub\Auto-Server-Starts\bin\Debug\net5.0-windows\Auto Server Start.runtimeconfig.dev.json
+H:\Documents\GitHub\Auto-Server-Starts\bin\Debug\net5.0-windows\Auto Server Start.dll
+H:\Documents\GitHub\Auto-Server-Starts\bin\Debug\net5.0-windows\Auto Server Start.pdb
+H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0-windows\Auto Server Start.csproj.AssemblyReference.cache
+H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0-windows\Auto Server Start.GeneratedMSBuildEditorConfig.editorconfig
+H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0-windows\Auto Server Start.AssemblyInfoInputs.cache
+H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0-windows\Auto Server Start.AssemblyInfo.cs
+H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0-windows\Auto Server Start.csproj.CoreCompileInputs.cache
+H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0-windows\Auto Server Start.dll
+H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0-windows\refint\Auto Server Start.dll
+H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0-windows\Auto Server Start.pdb
+H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0-windows\Auto Server Start.genruntimeconfig.cache
+H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0-windows\ref\Auto Server Start.dll
