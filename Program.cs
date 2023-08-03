@@ -25,7 +25,7 @@ namespace AutoServers
                 string exePath2 = @"C:\SERVER11-GALAXY2\Torch.Server.exe";
                 string exePath3 = @"C:\TORCH-Server_14\Torch.Server.exe";
                 string filePath = @"G:\Logs Server AutoStart\";
-                StreamWriter lg = new StreamWriter(filePath + "logServerAutostarts.log", true, Encoding.ASCII);
+                StreamWriter lg = new StreamWriter(filePath + "logServerAutostarts.txt", true, Encoding.ASCII);
                 if (isRunning == true)
                 {
                     Console.WriteLine("Quantum I Ready");
@@ -78,7 +78,7 @@ namespace AutoServers
                     lg.Close();
                     Thread.Sleep(10000);
                 }
-
+                lg.Close();
                 Thread.Sleep(30000);
             }       
         }
