@@ -4,16 +4,21 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Linq;
 using Microsoft.Win32;
+using System.Runtime.InteropServices;
+using System.Collections.Generic;
 using System.Reflection;
 using System.IO;
 using AutoServers;
+using System.Threading.Tasks;
 using System.Text;
 
 namespace AutoServers
 {
     public class Program
     {
-        static void Main (string[] args)
+        public static Task Main(string[] args) => new Program().MainAsync();
+
+        public async Task MainAsync()
         {
             while (true)
             {
@@ -25,7 +30,7 @@ namespace AutoServers
                 string exePath2 = @"C:\SERVER11-GALAXY2\Torch.Server.exe";
                 string exePath3 = @"C:\TORCH-Server_14\Torch.Server.exe";
                 string filePath = @"G:\Logs Server AutoStart\";
-                StreamWriter lg = new StreamWriter(filePath + "logServerAutostarts.log", true, Encoding.ASCII);
+                StreamWriter lg = new StreamWriter(filePath + "logServerAutostarts.txt", true, Encoding.ASCII);
                 if (isRunning == true)
                 {
                     Console.WriteLine("Quantum I Ready");
@@ -78,7 +83,7 @@ namespace AutoServers
                     lg.Close();
                     Thread.Sleep(10000);
                 }
-
+                lg.Close();
                 Thread.Sleep(30000);
             }       
         }

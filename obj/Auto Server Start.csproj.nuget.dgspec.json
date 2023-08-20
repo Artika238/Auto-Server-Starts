@@ -1,28 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "H:\\Documents\\GitHub\\Auto-Server-Starts\\Auto Server Start.csproj": {}
+    "C:\\Users\\Администратор\\Desktop\\Server Starts\\Auto Server Start\\Auto Server Start.csproj": {}
   },
   "projects": {
-    "H:\\Documents\\GitHub\\Auto-Server-Starts\\Auto Server Start.csproj": {
+    "C:\\Users\\Администратор\\Desktop\\Server Starts\\Auto Server Start\\Auto Server Start.csproj": {
       "version": "1.1.1",
       "restore": {
-        "projectUniqueName": "H:\\Documents\\GitHub\\Auto-Server-Starts\\Auto Server Start.csproj",
+        "projectUniqueName": "C:\\Users\\Администратор\\Desktop\\Server Starts\\Auto Server Start\\Auto Server Start.csproj",
         "projectName": "Auto Server Start",
-        "projectPath": "H:\\Documents\\GitHub\\Auto-Server-Starts\\Auto Server Start.csproj",
-        "packagesPath": "C:\\Users\\Artika\\.nuget\\packages\\",
-        "outputPath": "H:\\Documents\\GitHub\\Auto-Server-Starts\\obj\\",
+        "projectPath": "C:\\Users\\Администратор\\Desktop\\Server Starts\\Auto Server Start\\Auto Server Start.csproj",
+        "packagesPath": "C:\\Users\\Администратор\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Администратор\\Desktop\\Server Starts\\Auto Server Start\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Artika\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Администратор\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0-windows"
+          "net5.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -30,7 +30,7 @@
         },
         "frameworks": {
           "net5.0-windows7.0": {
-            "targetAlias": "net5.0-windows",
+            "targetAlias": "net5.0-windows7.0",
             "projectReferences": {}
           }
         },
@@ -42,15 +42,14 @@
       },
       "frameworks": {
         "net5.0-windows7.0": {
-          "targetAlias": "net5.0-windows",
+          "targetAlias": "net5.0-windows7.0",
           "imports": [
             "net461",
             "net462",
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -59,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
         }
       }
     }

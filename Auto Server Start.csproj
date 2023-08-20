@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
-    <ApplicationIcon>Autostart128.ico</ApplicationIcon>
+    <TargetFramework>net5.0-windows7.0</TargetFramework>
+    <ApplicationIcon>Autostart.ico</ApplicationIcon>
     <OutputType>Exe</OutputType>
     <StartupObject>AutoServers.Program</StartupObject>
     <Title>Auto Server Start</Title>
@@ -13,17 +13,12 @@
     <PackageIcon>Autostart128.png</PackageIcon>
     <AssemblyVersion>1.1.1</AssemblyVersion>
     <FileVersion>1.1.1</FileVersion>
+    <PackageId>Auto Server Start</PackageId>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Autostart128.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="C:\Users\Artika\Desktop\Autostart128.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
+    <Content Include="Autostart.ico" />
   </ItemGroup>
 
 </Project>
