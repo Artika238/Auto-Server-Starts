@@ -29,7 +29,7 @@ namespace AutoServers
             while (true)
             {
                 var _client = new DiscordSocketClient();
-                var token = "NzQ3MDYwMDU2ODYzODAxMzk1.X0JX5Q.EAzd2clkAie1pN11YwGdOukW-d8";
+                var token = "";
                 ulong channelId = 846430101318533180;
                 ulong channelId2 = 1088880001618804776;
                 ulong channelId3 = 883756518573490258;

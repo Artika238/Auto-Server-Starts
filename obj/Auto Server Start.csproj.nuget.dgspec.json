@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Администратор\\Desktop\\Server Starts\\Auto Server Start\\Auto Server Start.csproj": {}
+    "H:\\Documents\\GitHub\\Auto-Server-Starts\\Auto Server Start.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Администратор\\Desktop\\Server Starts\\Auto Server Start\\Auto Server Start.csproj": {
+    "H:\\Documents\\GitHub\\Auto-Server-Starts\\Auto Server Start.csproj": {
       "version": "1.1.1",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Администратор\\Desktop\\Server Starts\\Auto Server Start\\Auto Server Start.csproj",
+        "projectUniqueName": "H:\\Documents\\GitHub\\Auto-Server-Starts\\Auto Server Start.csproj",
         "projectName": "Auto Server Start",
-        "projectPath": "C:\\Users\\Администратор\\Desktop\\Server Starts\\Auto Server Start\\Auto Server Start.csproj",
-        "packagesPath": "C:\\Users\\Администратор\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Администратор\\Desktop\\Server Starts\\Auto Server Start\\obj\\",
+        "projectPath": "H:\\Documents\\GitHub\\Auto-Server-Starts\\Auto Server Start.csproj",
+        "packagesPath": "C:\\Users\\Artika\\.nuget\\packages\\",
+        "outputPath": "H:\\Documents\\GitHub\\Auto-Server-Starts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Администратор\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Artika\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -55,7 +55,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -64,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
