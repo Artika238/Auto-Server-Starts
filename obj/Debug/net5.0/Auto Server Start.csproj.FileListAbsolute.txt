@@ -1,16 +1,32 @@
-H:\Documents\GitHub\Auto-Server-Starts\bin\Debug\net5.0\Auto Server Start.exe
-H:\Documents\GitHub\Auto-Server-Starts\bin\Debug\net5.0\Auto Server Start.deps.json
-H:\Documents\GitHub\Auto-Server-Starts\bin\Debug\net5.0\Auto Server Start.runtimeconfig.json
-H:\Documents\GitHub\Auto-Server-Starts\bin\Debug\net5.0\Auto Server Start.runtimeconfig.dev.json
-H:\Documents\GitHub\Auto-Server-Starts\bin\Debug\net5.0\Auto Server Start.dll
-H:\Documents\GitHub\Auto-Server-Starts\bin\Debug\net5.0\Auto Server Start.pdb
-H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0\Auto Server Start.csproj.AssemblyReference.cache
-H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0\Auto Server Start.GeneratedMSBuildEditorConfig.editorconfig
-H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0\Auto Server Start.AssemblyInfoInputs.cache
-H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0\Auto Server Start.AssemblyInfo.cs
-H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0\Auto Server Start.csproj.CoreCompileInputs.cache
-H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0\Auto Server Start.dll
-H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0\refint\Auto Server Start.dll
-H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0\Auto Server Start.pdb
-H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0\Auto Server Start.genruntimeconfig.cache
-H:\Documents\GitHub\Auto-Server-Starts\obj\Debug\net5.0\ref\Auto Server Start.dll
+H:\Documents\Visual Studio 2022\Templates\Auto Server Start\obj\Debug\net5.0\Auto Server Start.csproj.AssemblyReference.cache
+H:\Documents\Visual Studio 2022\Templates\Auto Server Start\obj\Debug\net5.0\Auto Server Start.GeneratedMSBuildEditorConfig.editorconfig
+H:\Documents\Visual Studio 2022\Templates\Auto Server Start\obj\Debug\net5.0\Auto Server Start.AssemblyInfoInputs.cache
+H:\Documents\Visual Studio 2022\Templates\Auto Server Start\obj\Debug\net5.0\Auto Server Start.AssemblyInfo.cs
+H:\Documents\Visual Studio 2022\Templates\Auto Server Start\obj\Debug\net5.0\Auto Server Start.csproj.CoreCompileInputs.cache
+H:\Documents\Visual Studio 2022\Templates\Auto Server Start\bin\Debug\net5.0\Auto Server Start.exe
+H:\Documents\Visual Studio 2022\Templates\Auto Server Start\bin\Debug\net5.0\Auto Server Start.deps.json
+H:\Documents\Visual Studio 2022\Templates\Auto Server Start\bin\Debug\net5.0\Auto Server Start.runtimeconfig.json
+H:\Documents\Visual Studio 2022\Templates\Auto Server Start\bin\Debug\net5.0\Auto Server Start.runtimeconfig.dev.json
+H:\Documents\Visual Studio 2022\Templates\Auto Server Start\bin\Debug\net5.0\Auto Server Start.dll
+H:\Documents\Visual Studio 2022\Templates\Auto Server Start\bin\Debug\net5.0\Auto Server Start.pdb
+H:\Documents\Visual Studio 2022\Templates\Auto Server Start\obj\Debug\net5.0\Auto Server Start.dll
+H:\Documents\Visual Studio 2022\Templates\Auto Server Start\obj\Debug\net5.0\refint\Auto Server Start.dll
+H:\Documents\Visual Studio 2022\Templates\Auto Server Start\obj\Debug\net5.0\Auto Server Start.pdb
+H:\Documents\Visual Studio 2022\Templates\Auto Server Start\obj\Debug\net5.0\Auto Server Start.genruntimeconfig.cache
+H:\Documents\Visual Studio 2022\Templates\Auto Server Start\obj\Debug\net5.0\ref\Auto Server Start.dll
+C:\Users\Администратор\Desktop\Server Starts\Auto Server Start\obj\Debug\net5.0\Auto Server Start.csproj.AssemblyReference.cache
+C:\Users\Администратор\Desktop\Server Starts\Auto Server Start\obj\Debug\net5.0\Auto Server Start.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Администратор\Desktop\Server Starts\Auto Server Start\obj\Debug\net5.0\Auto Server Start.AssemblyInfoInputs.cache
+C:\Users\Администратор\Desktop\Server Starts\Auto Server Start\obj\Debug\net5.0\Auto Server Start.AssemblyInfo.cs
+C:\Users\Администратор\Desktop\Server Starts\Auto Server Start\obj\Debug\net5.0\Auto Server Start.csproj.CoreCompileInputs.cache
+C:\Users\Администратор\Desktop\Server Starts\Auto Server Start\obj\Debug\net5.0\Auto Server Start.dll
+C:\Users\Администратор\Desktop\Server Starts\Auto Server Start\obj\Debug\net5.0\ref\Auto Server Start.dll
+C:\Users\Администратор\Desktop\Server Starts\Auto Server Start\obj\Debug\net5.0\Auto Server Start.pdb
+C:\Users\Администратор\Desktop\Server Starts\Auto Server Start\bin\Debug\net5.0\Auto Server Start.exe
+C:\Users\Администратор\Desktop\Server Starts\Auto Server Start\bin\Debug\net5.0\Auto Server Start.deps.json
+C:\Users\Администратор\Desktop\Server Starts\Auto Server Start\bin\Debug\net5.0\Auto Server Start.runtimeconfig.json
+C:\Users\Администратор\Desktop\Server Starts\Auto Server Start\bin\Debug\net5.0\Auto Server Start.runtimeconfig.dev.json
+C:\Users\Администратор\Desktop\Server Starts\Auto Server Start\bin\Debug\net5.0\Auto Server Start.dll
+C:\Users\Администратор\Desktop\Server Starts\Auto Server Start\bin\Debug\net5.0\ref\Auto Server Start.dll
+C:\Users\Администратор\Desktop\Server Starts\Auto Server Start\bin\Debug\net5.0\Auto Server Start.pdb
+C:\Users\Администратор\Desktop\Server Starts\Auto Server Start\obj\Debug\net5.0\Auto Server Start.genruntimeconfig.cache

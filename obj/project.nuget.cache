@@ -1,8 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "bIdQrmEuI8U01chUaJqJ/CpGPgKzQsQqjbZCMfJGmrDlh60iR5RXT/nX3FvBrj1oESHhdN4lwswSS1n4yoYnzA==",
+  "dgSpecHash": "8Wh7TjxR6qV9vwWvVwRmjbRaFxe2Jpl3Mnz15Jz9kp2rF5hwlVDDaQdX8DiX+BbBHVWKDtxAXQsEopqCVVj/ug==",
   "success": true,
-  "projectFilePath": "H:\\Documents\\GitHub\\Auto-Server-Starts\\Auto Server Start.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Администратор\\Desktop\\Server Starts\\Auto Server Start\\Auto Server Start.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Администратор\\.nuget\\packages\\discord.net\\3.12.0\\discord.net.3.12.0.nupkg.sha512",
+    "C:\\Users\\Администратор\\.nuget\\packages\\discord.net.commands\\3.12.0\\discord.net.commands.3.12.0.nupkg.sha512",
+    "C:\\Users\\Администратор\\.nuget\\packages\\discord.net.core\\3.12.0\\discord.net.core.3.12.0.nupkg.sha512",
+    "C:\\Users\\Администратор\\.nuget\\packages\\discord.net.interactions\\3.12.0\\discord.net.interactions.3.12.0.nupkg.sha512",
+    "C:\\Users\\Администратор\\.nuget\\packages\\discord.net.rest\\3.12.0\\discord.net.rest.3.12.0.nupkg.sha512",
+    "C:\\Users\\Администратор\\.nuget\\packages\\discord.net.webhook\\3.12.0\\discord.net.webhook.3.12.0.nupkg.sha512",
+    "C:\\Users\\Администратор\\.nuget\\packages\\discord.net.websocket\\3.12.0\\discord.net.websocket.3.12.0.nupkg.sha512",
+    "C:\\Users\\Администратор\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Администратор\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
+    "C:\\Users\\Администратор\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
+    "C:\\Users\\Администратор\\.nuget\\packages\\system.interactive.async\\5.0.0\\system.interactive.async.5.0.0.nupkg.sha512",
+    "C:\\Users\\Администратор\\.nuget\\packages\\system.linq.async\\5.0.0\\system.linq.async.5.0.0.nupkg.sha512",
+    "C:\\Users\\Администратор\\.nuget\\packages\\system.reactive\\5.0.0\\system.reactive.5.0.0.nupkg.sha512",
+    "C:\\Users\\Администратор\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

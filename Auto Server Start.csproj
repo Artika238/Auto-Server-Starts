@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net5.0-windows7.0</TargetFramework>
     <ApplicationIcon>Autostart.ico</ApplicationIcon>
     <OutputType>Exe</OutputType>
     <StartupObject>AutoServers.Program</StartupObject>
@@ -14,10 +14,15 @@
     <AssemblyVersion>1.1.1</AssemblyVersion>
     <FileVersion>1.1.1</FileVersion>
     <PackageId>Auto Server Start</PackageId>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Include="Autostart.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Discord.Net" Version="3.12.0" />
   </ItemGroup>
 
 </Project>
