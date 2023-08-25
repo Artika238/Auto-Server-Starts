@@ -30,10 +30,10 @@ namespace AutoServers
             {
                 var _client = new DiscordSocketClient();
                 var token = "";
-                ulong channelId = 846430101318533180;
-                ulong channelId2 = 1088880001618804776;
-                ulong channelId3 = 883756518573490258;
-                ulong channelId4 = 1109229097856540743;
+                ulong channelId = 1;
+                ulong channelId2 = 1;
+                ulong channelId3 = 1;
+                ulong channelId4 = 1;
                 var message = (DateTime.Now + "\nQuantum I Started");
                 var message1 = (DateTime.Now + "\nQuantum II Started");
                 var message2 = (DateTime.Now + "\nVanilla Started");

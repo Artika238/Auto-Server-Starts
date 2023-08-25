@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net5.0-windows7.0": {
+    "net5.0-windows10.0.17763": {
       "Discord.Net/3.12.0": {
         "type": "package",
         "dependencies": {
@@ -554,7 +554,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net5.0-windows7.0": [
+    "net5.0-windows10.0.17763": [
       "Discord.Net >= 3.12.0"
     ]
   },
@@ -580,15 +580,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0-windows7.0"
+        "net5.0-windows10.0.17763.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net5.0-windows7.0": {
-          "targetAlias": "net5.0-windows7.0",
+        "net5.0-windows10.0.17763": {
+          "targetAlias": "net5.0-windows10.0.17763.0",
           "projectReferences": {}
         }
       },
@@ -599,8 +599,8 @@
       }
     },
     "frameworks": {
-      "net5.0-windows7.0": {
-        "targetAlias": "net5.0-windows7.0",
+      "net5.0-windows10.0.17763": {
+        "targetAlias": "net5.0-windows10.0.17763.0",
         "dependencies": {
           "Discord.Net": {
             "target": "Package",
@@ -618,8 +618,17 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.Windows.SDK.NET.Ref",
+            "version": "[10.0.17763.26, 10.0.17763.26]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.Windows.SDK.NET.Ref": {
             "privateAssets": "all"
           }
         },

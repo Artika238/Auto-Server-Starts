@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fyCGzPcXwxYdeoFH11mEEu+96ED6U22uNEl9t2Zgq2640omDRdvwE7c2X/BJCSlOWBeJmP7vOtRS5QfgHqpx9Q==",
+  "dgSpecHash": "vyh2eus9qnD+QottEOu8970O/+hgtGWtZsH/ckIaiY+l6omvmlpidnMLQoPAXNcA7wPUOM2eba9XAwIB/MJdQA==",
   "success": true,
   "projectFilePath": "H:\\Documents\\GitHub\\Auto-Server-Starts\\Auto Server Start.csproj",
   "expectedPackageFiles": [
@@ -17,7 +17,8 @@
     "C:\\Users\\Artika\\.nuget\\packages\\system.interactive.async\\5.0.0\\system.interactive.async.5.0.0.nupkg.sha512",
     "C:\\Users\\Artika\\.nuget\\packages\\system.linq.async\\5.0.0\\system.linq.async.5.0.0.nupkg.sha512",
     "C:\\Users\\Artika\\.nuget\\packages\\system.reactive\\5.0.0\\system.reactive.5.0.0.nupkg.sha512",
-    "C:\\Users\\Artika\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+    "C:\\Users\\Artika\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
+    "C:\\Users\\Artika\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.17763.26\\microsoft.windows.sdk.net.ref.10.0.17763.26.nupkg.sha512"
   ],
   "logs": []
 }
