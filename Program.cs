@@ -40,8 +40,8 @@ namespace AutoServers
 
         public static int serv1, serv2, serv3;
         public static bool isRunning = Process.GetProcessesByName("Torch.Server").FirstOrDefault(p => p.MainModule.FileName.StartsWith(@"C:\SERVER9-HARD")) != default(Process);
-        public static bool isRunning2 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(t => t.MainModule.FileName.StartsWith(@"C:\SERVER11-GALAXY2")) != default(Process);
-        public static bool isRunning3 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(t => t.MainModule.FileName.StartsWith(@"C:\TORCH-Server_14")) != default(Process);
+        public static bool isRunning2 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(g => g.MainModule.FileName.StartsWith(@"C:\SERVER11-GALAXY2")) != default(Process);
+        public static bool isRunning3 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(j => j.MainModule.FileName.StartsWith(@"C:\TORCH-Server_14")) != default(Process);
         public static bool isRunning4 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(t => t.MainModule.FileName.StartsWith(@"C:\SERVER10-NPC")) != default(Process);
         public static string exePath1 = @"C:\SERVER9-HARD\Torch.Server.exe";
         public static string exePath2 = @"C:\SERVER11-GALAXY2\Torch.Server.exe";
