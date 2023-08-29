@@ -170,6 +170,7 @@ namespace AutoServers
                 //var _client = new DiscordSocketClient();
                 //var token = "";
                 Console.WriteLine("А я жру процессор по приколу");
+                Thread.Sleep(150000);
                 //ulong channelId = 1;
                 //ulong channelId2 = 1;
                 //ulong channelId3 = 1;
