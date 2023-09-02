@@ -40,6 +40,7 @@ namespace AutoServers
 
         public static int serv1, serv2, serv3;
         public static bool isRunning = Process.GetProcessesByName("Torch.Server").FirstOrDefault(p => p.MainModule.FileName.StartsWith(@"C:\SERVER9-HARD")) != default(Process);
+        //public static int isRunnin4g = Process.GetProcessesByName("Torch.Server").FirstOrDefault(p => p.MainModule.FileName.Equals(@"C:\SERVER9-HARD")).Id;
         public static bool isRunning2 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(g => g.MainModule.FileName.StartsWith(@"C:\SERVER11-GALAXY2")) != default(Process);
         public static bool isRunning3 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(j => j.MainModule.FileName.StartsWith(@"C:\TORCH-Server_14")) != default(Process);
         public static bool isRunning4 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(t => t.MainModule.FileName.StartsWith(@"C:\SERVER10-NPC")) != default(Process);
@@ -47,6 +48,28 @@ namespace AutoServers
         public static string exePath2 = @"C:\SERVER11-GALAXY2\Torch.Server.exe";
         public static string exePath3 = @"C:\TORCH-Server_14\Torch.Server.exe";
         public static string exePath4 = @"C:\SERVER10-NPC\Torch.Server.exe";
+        public static DateTime dataTimeQ1 = File.GetLastWriteTime(exePath1);
+        public static DateTime dataTimeQ2 = File.GetLastWriteTime(exePath2);
+        public static DateTime dataTimeVanilla = File.GetLastWriteTime(exePath3);
+        public static DateTime dataTimeNPC = File.GetLastWriteTime(exePath4);
+        public static DateTime now = DateTime.Now;
+        public static DateTime MIN = DateTime.MinValue;
+        public static DateTime MAX = DateTime.MaxValue;
+        public static int servers1;
+        public static int servers1_2;
+        public static int servers2;
+        public static int servers3;
+        public static int servers4;
+
+        
+
+
+
+
+        public static string SaveQ1 = @"C:\SERVER9-HARD\Inctance";
+        public static string SaveVanilla = @"C:\SERVER10-NPC\Inctance";
+        public static string SaveQ2 = @"C:\SERVER11-GALAXY2\Inctance";
+        public static string SaveNPC = @"C\TORCH-Server_14\Inctance";
         Int64 x;
 
         public static void QuantumI()
@@ -55,8 +78,17 @@ namespace AutoServers
             {
                 if (isRunning == true)
                 {
-                    Console.WriteLine("Quantum I Ready");
-                    serv1 = 1;
+                    isRunning.ToString();
+                    long serversave1 = (long)(now - dataTimeQ1).TotalMilliseconds;
+                    var s = serversave1 - 0;
+                    if (serversave1 <= 600000)
+                    {
+                        Console.WriteLine("Quantum I Ready");
+                        serv1 = 1;
+                    }
+                    else
+                    {
+                    }
                 }
                 else
                 {
