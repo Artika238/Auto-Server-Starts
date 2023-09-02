@@ -117,6 +117,7 @@ namespace AutoServers
                 {
                     Console.WriteLine("Quantum II Ready");
                     serv2 = 1;
+                    Thread.Sleep(10000);
                 }
                 else
                 {
@@ -146,6 +147,7 @@ namespace AutoServers
                 {
                     Console.WriteLine("Quantum NPC Ready");
                     serv3 = 1;
+                    Thread.Sleep(10000);
                 }
                 else
                 {
@@ -174,6 +176,7 @@ namespace AutoServers
                 if (isRunning4 == true)
                 {
                     Console.WriteLine("Vanilla Ready");
+                    Thread.Sleep(10000);
                 }
                 else
                 {
@@ -202,6 +205,7 @@ namespace AutoServers
                 //var _client = new DiscordSocketClient();
                 //var token = "";
                 Console.WriteLine("А я жру процессор по приколу");
+                Thread.Sleep(150000);
                 //ulong channelId = 1;
                 //ulong channelId2 = 1;
                 //ulong channelId3 = 1;

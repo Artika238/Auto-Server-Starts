@@ -1,9 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\Artika\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Artika\\.nuget\\packages",
-      "D:\\Programms\\Visual Studio SDK\\NuGetPackages"
-    ]
-  }
-}
