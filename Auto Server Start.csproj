@@ -1,24 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0-windows10.0.17763.0</TargetFramework>
-    <ApplicationIcon>Autostart.ico</ApplicationIcon>
+    <TargetFramework>net5.0</TargetFramework>
+    <ApplicationIcon>Autostart128.ico</ApplicationIcon>
     <OutputType>Exe</OutputType>
-    <StartupObject>AutoServers.Program</StartupObject>
-    <Title>Auto Server Start</Title>
-    <Version>1.1.1</Version>
-    <Authors>Artika</Authors>
-    <Company>Prometheus</Company>
-    <Copyright>Artika</Copyright>
-    <PackageIcon>Autostart128.png</PackageIcon>
-    <AssemblyVersion>1.1.1</AssemblyVersion>
-    <FileVersion>1.1.1</FileVersion>
-    <PackageId>Auto Server Start</PackageId>
-    <NoWin32Manifest>true</NoWin32Manifest>
+    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Autostart.ico" />
+    <Content Include="Autostart128.ico" />
   </ItemGroup>
 
   <ItemGroup>

@@ -16,42 +16,30 @@ using Discord.Net;
 using Discord.WebSocket;
 using Discord.Commands;
 using Discord.Rest;
+using Auto_Server_Start;
 using Discord.Utils;
 using System.Threading.Channels;
-using Windows.Media.Protection.PlayReady;
 
 namespace AutoServers
 {
     public class Program
     {
-        static void Main()
-        {
-            Thread Main = new Thread(Main2);
-            Thread quant1 = new Thread(QuantumI);
-            Thread quant2 = new Thread(QuantumII);
-            Thread quantNPC = new Thread(QuantumNPC);
-            Thread quantVANILLA = new Thread(QuantumVanilla);
-            Main.Start();
-            quant1.Start();
-            quant2.Start();
-            quantNPC.Start();
-            quantVANILLA.Start();
-        }
-
-        public static int serv1, serv2, serv3;
-        public static bool isRunning = Process.GetProcessesByName("Torch.Server").FirstOrDefault(p => p.MainModule.FileName.StartsWith(@"C:\SERVER9-HARD")) != default(Process);
+        public static int serv1, serv2, serv3, server4;
+        //public static bool isRunning = Process.GetProcessesByName("Torch.Server").FirstOrDefault(a => a.MainModule.FileName.StartsWith(@"C:\SERVER9-HARD")) != default(Process);
         //public static int isRunnin4g = Process.GetProcessesByName("Torch.Server").FirstOrDefault(p => p.MainModule.FileName.Equals(@"C:\SERVER9-HARD")).Id;
-        public static bool isRunning2 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(g => g.MainModule.FileName.StartsWith(@"C:\SERVER11-GALAXY2")) != default(Process);
-        public static bool isRunning3 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(j => j.MainModule.FileName.StartsWith(@"C:\TORCH-Server_14")) != default(Process);
-        public static bool isRunning4 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(t => t.MainModule.FileName.StartsWith(@"C:\SERVER10-NPC")) != default(Process);
-        public static string exePath1 = @"C:\SERVER9-HARD\Torch.Server.exe";
-        public static string exePath2 = @"C:\SERVER11-GALAXY2\Torch.Server.exe";
-        public static string exePath3 = @"C:\TORCH-Server_14\Torch.Server.exe";
-        public static string exePath4 = @"C:\SERVER10-NPC\Torch.Server.exe";
-        public static DateTime dataTimeQ1 = File.GetLastWriteTime(exePath1);
-        public static DateTime dataTimeQ2 = File.GetLastWriteTime(exePath2);
-        public static DateTime dataTimeVanilla = File.GetLastWriteTime(exePath3);
-        public static DateTime dataTimeNPC = File.GetLastWriteTime(exePath4);
+        //public static bool isRunning2 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(k => k.MainModule.FileName.StartsWith(@"C:\SERVER11-GALAXY2")) != default(Process);
+        //public static bool isRunning3 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(j => j.MainModule.FileName.StartsWith(@"C:\TORCH-Server_14")) != default(Process);
+        //public static bool isRunning4 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(t => t.MainModule.FileName.StartsWith(@"C:\SERVER10-NPC")) != default(Process);
+        static AutoResetEvent ResetEvent = new AutoResetEvent(true);
+        static object locker = new object();
+        //public static string exePath1 = @"C:\SERVER9-HARD\Torch.Server.exe";
+        //public static string exePath2 = @"G:\SERVER11-GALAXY2\Torch.Server.exe";
+        //public static string exePath3 = @"G:\TORCH-Server_14\Torch.Server.exe";
+        //public static string exePath4 = @"C:\SERVER10-NPC\Torch.Server.exe";
+        //public static DateTime dataTimeQ1 = File.GetLastWriteTime(exePath1);
+        //public static DateTime dataTimeQ2 = File.GetLastWriteTime(exePath2);
+        //public static DateTime dataTimeVanilla = File.GetLastWriteTime(exePath3);
+        //public static DateTime dataTimeNPC = File.GetLastWriteTime(exePath4);
         public static DateTime now = DateTime.Now;
         public static DateTime MIN = DateTime.MinValue;
         public static DateTime MAX = DateTime.MaxValue;
@@ -60,162 +48,105 @@ namespace AutoServers
         public static int servers2;
         public static int servers3;
         public static int servers4;
+        public static ulong channelId = 1;
+        public static ulong channelId2 = 1;
+        public static ulong channelId3 = 1;
+        public static ulong channelId4 = 1;
 
-        
+
+
 
 
 
 
         public static string SaveQ1 = @"C:\SERVER9-HARD\Inctance";
         public static string SaveVanilla = @"C:\SERVER10-NPC\Inctance";
-        public static string SaveQ2 = @"C:\SERVER11-GALAXY2\Inctance";
-        public static string SaveNPC = @"C\TORCH-Server_14\Inctance";
+        public static string SaveQ2 = @"G:\SERVER11-GALAXY2\Inctance";
+        public static string SaveNPC = @"G\TORCH-Server_14\Inctance";
         Int64 x;
 
-        public static void QuantumI()
+        static void Main()
         {
-            do
-            {
-                if (isRunning == true)
-                {
-                    isRunning.ToString();
-                    long serversave1 = (long)(now - dataTimeQ1).TotalMilliseconds;
-                    var s = serversave1 - 0;
-                    if (serversave1 <= 600000)
-                    {
-                        Console.WriteLine("Quantum I Ready");
-                        serv1 = 1;
-                    }
-                    else
-                    {
-                    }
-                }
-                else
-                {
-                    Process.Start(exePath1);
-                    //var channel = await _client.GetChannelAsync(channelId) as IMessageChannel;
-                    //await channel!.SendMessageAsync(message);
-                    serv1 = 0;
-                    //                    lg.WriteLine("\n" + DateTime.Now + "\nQuantum I Started");
-                    //                    for (x = 0; x < 10; x++)
-                    //                    {
-                    //                        lg.Write(x);
-                    //                    }
-
-                    //close the file
-                    //                    lg.Close();
-                    Thread.Sleep(10000);
-                }
-            }
-            while (true);
-        }
-        public static void QuantumII()
-        {
-            do
-            {
-                if (isRunning2 == true)
-                {
-                    Console.WriteLine("Quantum II Ready");
-                    serv2 = 1;
-                    Thread.Sleep(10000);
-                }
-                else
-                {
-                    Process.Start(exePath2);
-                    //var channel = await _client.GetChannelAsync(channelId2) as IMessageChannel;
-                    //await channel!.SendMessageAsync(message1);
-                    serv2 = 0;
-                    //                   lg.WriteLine("\n" + DateTime.Now + "\nQuantum II Started");
-                    //                   for (x = 0; x < 10; x++)
-                    //                   {
-                    //                       lg.Write(x);
-                    //                   }
-                    //
-                    //close the file
-                    //                    lg.Close();
-                    Thread.Sleep(10000);
-                }
-            }
-            while (true);
+            Thread Main = new Thread(Main2);
+            Thread quant1 = new Thread(Program2.Quantum);
+            Thread TimerS = new Thread(TimerConsole);
+            Main.Start();
+            quant1.Start();
+            TimerS.Start();
         }
 
-        public static void QuantumNPC()
+        public static void TimerConsole()
         {
             do
             {
-                if (isRunning3 == true)
-                {
-                    Console.WriteLine("Quantum NPC Ready");
-                    serv3 = 1;
-                    Thread.Sleep(10000);
-                }
-                else
-                {
-                    Process.Start(exePath3);
-                    TimeSpan ts3 = TimeSpan.Zero;
-                    serv3 = 0;
-                    //var channel = await _client.GetChannelAsync(channelId4) as IMessageChannel;
-                    //await channel!.SendMessageAsync(message3);
-                    //                    lg.WriteLine("\n" + DateTime.Now + "\nQuantum NPC Started");
-                    //                    for (x = 0; x < 10; x++)
-                    //                    {
-                    //                        lg.Write(x);
-                    //                    }
-                    //
-                    //close the file
-                    //                    lg.Close();
-                    Thread.Sleep(10000);
-                }
+                Thread.Sleep(50000);
+                Console.Clear();
+                Thread.Sleep(900000);
             }
             while (true);
         }
-        public static void QuantumVanilla()
-        {
-            do
-            {
-                if (isRunning4 == true)
-                {
-                    Console.WriteLine("Vanilla Ready");
-                    Thread.Sleep(10000);
-                }
-                else
-                {
-                    Process.Start(exePath4);
-                    TimeSpan ts3 = TimeSpan.Zero;
-                    //var channel = await _client.GetChannelAsync(channelId3) as IMessageChannel;
-                    //await channel!.SendMessageAsync(message2);
-                    //                    lg.WriteLine("\n" + DateTime.Now + "\nQuantum NPC Started");
-                    //                    for (x = 0; x < 10; x++)
-                    //                    {
-                    //                        lg.Write(x);
-                    //                    }
-                    //
-                    //close the file
-                    //                    lg.Close();
-                    Thread.Sleep(10000);
-                }
-            }
-            while (true);
-        }
-
         public static void Main2()
         {
+            //var _client = new DiscordSocketClient();
+            //var token = "";
+            //_client.LoginAsync(TokenType.Bot, token);
+            //_client.StartAsync();
+            Console.WriteLine("Бот Включен");
+            //_client.SetGameAsync("Servers worked");
             while (true)
             {
-                //var _client = new DiscordSocketClient();
-                //var token = "";
-                Console.WriteLine("А я жру процессор по приколу");
-                Thread.Sleep(150000);
-                //ulong channelId = 1;
-                //ulong channelId2 = 1;
-                //ulong channelId3 = 1;
-                //ulong channelId4 = 1;
-                //var message = (DateTime.Now + "\nQuantum I Started");
-                //var message1 = (DateTime.Now + "\nQuantum II Started");
-                //var message2 = (DateTime.Now + "\nVanilla Started");
-                //var message3 = (DateTime.Now + "\nQuantum NPC Started");
-                //await _client.LoginAsync(TokenType.Bot, token);
-                //await _client.StartAsync();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                //Рестарт серверов
+                int Hour9 = 12; int Minute9 = 00; int Seconds9 = 00; if ((Hour9 == System.DateTime.Now.Hour) && (Minute9 == System.DateTime.Now.Minute) && (Seconds9 == System.DateTime.Now.Second))
+                {
+                    //_client.SetGameAsync("Servers restarted");
+                    Thread.Sleep(60000);
+                }
+                else
+                {
+                    var servin = serv1 + serv2 + serv3;
+                    //_client.SetGameAsync("Servers " + servin + "/3 Quantum");
+                    Thread.Sleep(1000);
+                }
+                int Hour10 = 18; int Minute10 = 00; int Seconds10 = 00; if ((Hour10 == System.DateTime.Now.Hour) && (Minute10 == System.DateTime.Now.Minute) && (Seconds10 == System.DateTime.Now.Second))
+                {
+                    //_client.SetGameAsync("Servers restarted");
+                    Thread.Sleep(60000);
+                }
+                else
+                {
+                    var servin = serv1 + serv2 + serv3;
+                    //_client.SetGameAsync("Servers " + servin + "/3 Quantum");
+                    Thread.Sleep(1000);
+                }
+                int Hour11 = 00; int Minute11 = 00; int Seconds11 = 00; if ((Hour11 == System.DateTime.Now.Hour) && (Minute11 == System.DateTime.Now.Minute) && (Seconds11 == System.DateTime.Now.Second))
+                {;
+                    //_client.SetGameAsync("Servers restarted");
+                    Thread.Sleep(60000);
+                }
+                else
+                {
+                    var servin = serv1 + serv2 + serv3;
+                    //_client.SetGameAsync("Servers " + servin + "/3 Quantum");
+                    Thread.Sleep(1000);
+                }
+                int Hour12 = 06; int Minute12 = 00; int Seconds12 = 00; if ((Hour12 == System.DateTime.Now.Hour) && (Minute12 == System.DateTime.Now.Minute) && (Seconds12 == System.DateTime.Now.Second))
+                {
+                    //_client.SetGameAsync("Servers restarted");
+                    Thread.Sleep(60000);
+                }
+                else
+                {
+                    var servin = serv1 + serv2 + serv3;
+                    //_client.SetGameAsync("Servers " + servin + "/3 Quantum");
+                    Thread.Sleep(1000);
+                }
+                var message = (DateTime.Now + "\nQuantum I Started");
+                var message1 = (DateTime.Now + "\nQuantum II Started");
+                var message2 = (DateTime.Now + "\nVanilla Started");
+                var message3 = (DateTime.Now + "\nQuantum NPC Started");
+
                 {
                     // Block this task until the program is closed.
 
