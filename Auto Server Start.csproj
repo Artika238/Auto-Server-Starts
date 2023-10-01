@@ -2,13 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <ApplicationIcon>Autostart128.ico</ApplicationIcon>
+    <ApplicationIcon>Autostart.ico</ApplicationIcon>
     <OutputType>Exe</OutputType>
-    <StartupObject />
+    <NoWin32Manifest>true</NoWin32Manifest>
+    <PlatformTarget>x64</PlatformTarget>
+    <SignAssembly>False</SignAssembly>
+    <Version>1.2.1</Version>
+    <Authors>Artika</Authors>
+    <Company>Artika</Company>
+    <Copyright>Artika</Copyright>
+    <FileVersion>1.2.1</FileVersion>
+    <PackageId>Auto Server Start</PackageId>
+    <Product>Auto Server Start</Product>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Autostart128.ico" />
+    <Content Include="Autostart.ico" />
   </ItemGroup>
 
   <ItemGroup>
