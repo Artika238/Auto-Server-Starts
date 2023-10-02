@@ -9,17 +9,14 @@ using System.Threading.Tasks;
 
 namespace Auto_Server_Start
 {
-    public class Program2
+    public class Program3
     {
-        public static int serv1, serv2, serv3, server4;
-        public static string exePath1 = @"C:\SERVER9-HARD\Torch.Server.exe";
-        Int64 x;
-
-        public static void QuantumI()
+        public static string exePath2 = @"G:\SERVER11-GALAXY2\Torch.Server.exe";
+        public static void QuantumII()
         {
             do
             {
-                bool isRunning = Process.GetProcessesByName("Torch.Server").FirstOrDefault(a => a.MainModule.FileName.StartsWith(@"C:\SERVER9-HARD")) != default(Process);
+                bool isRunning2 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(a => a.MainModule.FileName.StartsWith(@"G:\SERVER11-GALAXY2")) != default(Process);
                 int Hour9 = 11; int Minute9 = 59; int Seconds9 = 50; if ((Hour9 == System.DateTime.Now.Hour) && (Minute9 == System.DateTime.Now.Minute) && (Seconds9 == System.DateTime.Now.Second))
                 {
                     Thread.Sleep(60000);
@@ -39,20 +36,21 @@ namespace Auto_Server_Start
                 }
                 else
                 {
-                    if (isRunning == true)
+                    if (isRunning2 == true)
                     {
                         Thread.Sleep(1);
                     }
                     else
                     {
-                        Console.WriteLine("Quantum I Start");
-                        Process.Start(exePath1);
+                        Console.WriteLine("Quantum II Start");
+                        Process.Start(exePath2);
                         Thread.Sleep(50000);
-                        serv1 = 0;
                     }
                 }
             }
             while (true);
         }
     }
+
+
 }

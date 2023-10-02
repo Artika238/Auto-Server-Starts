@@ -70,10 +70,10 @@ namespace AutoServers
         {
             Thread Main = new Thread(Main2);
             Thread quant1 = new Thread(Program2.QuantumI);
-            Thread quant2 = new Thread(Program2.QuantumII);
-            Thread quant3 = new Thread(Program2.QuantumIII);
-            Thread quantNPC = new Thread(Program2.QuantumNPC);
-            Thread quantLOBBY = new Thread(Program2.QuantumLobby);
+            Thread quant2 = new Thread(Program3.QuantumII);
+            Thread quant3 = new Thread(Program4.QuantumIII);
+            Thread quantNPC = new Thread(Program5.QuantumNPC);
+            Thread quantLOBBY = new Thread(Program6.QuantumLobby);
             Thread TimerS = new Thread(TimerConsole);
             Main.Start();
             quant1.Start();
