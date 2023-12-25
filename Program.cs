@@ -26,12 +26,12 @@ namespace AutoServers
     {
         static void Main()
         {
-            Thread Main = new Thread(Main2);
+            //Thread Main = new Thread(Main2);
             Thread quant1 = new Thread(QuantumI);
             Thread quant2 = new Thread(QuantumII);
             Thread quantNPC = new Thread(QuantumNPC);
             Thread quantVANILLA = new Thread(QuantumVanilla);
-            Main.Start();
+            //Main.Start();
             quant1.Start();
             quant2.Start();
             quantNPC.Start();
