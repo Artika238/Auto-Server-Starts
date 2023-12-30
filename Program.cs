@@ -123,7 +123,6 @@ namespace AutoServers
                                     }
                                     finally
                                     {
-                                        Thread.ResetAbort();
                                         Thread.Sleep(10000);
                                     }
 
@@ -163,7 +162,6 @@ namespace AutoServers
                                 }
                                 finally
                                 {
-                                    Thread.ResetAbort();
                                     Thread.Sleep(10000);
                                 }
 
@@ -213,7 +211,6 @@ namespace AutoServers
                                     }
                                     finally
                                     {
-                                        Thread.ResetAbort();
                                         Thread.Sleep(10000);
                                     }
 
@@ -279,7 +276,6 @@ namespace AutoServers
                                     }
                                     finally
                                     {
-                                        Thread.ResetAbort();
                                         Thread.Sleep(10000);
                                     }
                                     Console.WriteLine(exePath2 + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
@@ -315,7 +311,6 @@ namespace AutoServers
                                 }
                                 finally
                                 {
-                                    Thread.ResetAbort();
                                     Thread.Sleep(1000);
                                 }
 
@@ -365,7 +360,6 @@ namespace AutoServers
                                     }
                                     finally
                                     {
-                                        Thread.ResetAbort();
                                         Thread.Sleep(1000);
                                     }
                                     Console.WriteLine(exePath2 + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
@@ -431,7 +425,6 @@ namespace AutoServers
                                     }
                                     finally
                                     {
-                                        Thread.ResetAbort();
                                         Thread.Sleep(1000);
                                     }
 
@@ -468,7 +461,6 @@ namespace AutoServers
                                 }
                                 finally
                                 {
-                                    Thread.ResetAbort();
                                     Thread.Sleep(1000);
                                 }
 
@@ -518,7 +510,6 @@ namespace AutoServers
                                     }
                                     finally
                                     {
-                                        Thread.ResetAbort();
                                         Thread.Sleep(1000);
                                     }
 
@@ -584,7 +575,6 @@ namespace AutoServers
                                     }
                                     finally
                                     {
-                                        Thread.ResetAbort();
                                         Thread.Sleep(1000);
                                     }
 
@@ -621,7 +611,6 @@ namespace AutoServers
                                 }
                                 finally
                                 {
-                                    Thread.ResetAbort();
                                     Thread.Sleep(1000);
                                 }
 
@@ -671,7 +660,6 @@ namespace AutoServers
                                     }
                                     finally
                                     {
-                                        Thread.ResetAbort();
                                         Thread.Sleep(1000);
                                     }
 
