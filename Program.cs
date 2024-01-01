@@ -49,6 +49,11 @@ namespace AutoServers
         public static string exePath3 = @"G:\TORCH-Server_14\Torch.Server.exe";
         public static string exePath4 = @"C:\SERVER10-NPC\Torch.Server.exe";
 
+        public static string exePath1_2 = @"C:\SERVER9-HARD";
+        public static string exePath2_2 = @"G:\SERVER11-GALAXY2";
+        public static string exePath3_2 = @"G:\TORCH-Server_14";
+        public static string exePath4_2 = @"C:\SERVER10-NPC";
+
         public static string exePath1Save = @"C:\SERVER9-HARD\Instance\Saves\Quantum\SANDBOX_0_0_0_.sbs";
         public static string exePath2Save = @"G:\SERVER11-GALAXY2\Instance\Saves\Quantum\SANDBOX_0_0_0_.sbs";
         public static string exePath3Save = @"G:\TORCH-Server_14\Instance\Saves\Quantum\SANDBOX_0_0_0_.sbs";
@@ -80,8 +85,9 @@ namespace AutoServers
 
         public static void QuantumI()
         {
-            do
+            while(isRunning) 
             {
+                Environment.CurrentDirectory = exePath1_2;
                 var saveLOG1 = new FileInfo(exePath1Logs);
                 var saveQ1 = new FileInfo(exePath1Save);
                 if (isRunning == true)
@@ -236,8 +242,9 @@ namespace AutoServers
         }
         public static void QuantumII()
         {
-            do
+            while(isRunning2)
             {
+                Environment.CurrentDirectory = exePath2_2;
                 var saveLOG2 = new FileInfo(exePath2Logs);
                 var saveQ2 = new FileInfo(exePath2Save);
                 if (isRunning2 == true)
@@ -385,8 +392,9 @@ namespace AutoServers
 
         public static void QuantumNPC()
         {
-            do
+            while(isRunning3)
             {
+                Environment.CurrentDirectory = exePath3_2;
                 var saveLOGNPC = new FileInfo(exePath3Logs);
                 var saveQNPC = new FileInfo(exePath3Save);
                 if (isRunning3 == true)
@@ -535,8 +543,9 @@ namespace AutoServers
         }
         public static void QuantumVanilla()
         {
-            do
+            while(isRunning4)
             {
+                Environment.CurrentDirectory = exePath4_2;
                 var saveLOG4 = new FileInfo(exePath4Logs);
                 var saveQ4 = new FileInfo(exePath4Save);
                 if (isRunning4 == true)

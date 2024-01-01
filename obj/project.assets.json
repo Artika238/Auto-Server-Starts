@@ -560,19 +560,19 @@
   },
   "packageFolders": {
     "C:\\Users\\Artika\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "D:\\Programms\\Visual Studio SDK\\NuGetPackages": {}
   },
   "project": {
     "version": "1.1.1",
     "restore": {
-      "projectUniqueName": "H:\\Documents\\GitHub\\Auto-Server-Starts\\Auto Server Start.csproj",
+      "projectUniqueName": "D:\\GitHub\\Auto Start Servers\\Auto-Server-Starts\\Auto Server Start.csproj",
       "projectName": "Auto Server Start",
-      "projectPath": "H:\\Documents\\GitHub\\Auto-Server-Starts\\Auto Server Start.csproj",
+      "projectPath": "D:\\GitHub\\Auto Start Servers\\Auto-Server-Starts\\Auto Server Start.csproj",
       "packagesPath": "C:\\Users\\Artika\\.nuget\\packages\\",
-      "outputPath": "H:\\Documents\\GitHub\\Auto-Server-Starts\\obj\\",
+      "outputPath": "D:\\GitHub\\Auto Start Servers\\Auto-Server-Starts\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "D:\\Programms\\Visual Studio SDK\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\Artika\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -632,7 +632,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
