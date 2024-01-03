@@ -135,8 +135,8 @@ namespace AutoServers
                                     Console.WriteLine(exePath1 + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
                                     Thread.Sleep(10000);
                                     Process.Start(exePath1);
-                                    Thread.Sleep(360000);
                                     Console.WriteLine(exePath1 + " Запуск / 5 минут ожидания данных");
+                                    Thread.Sleep(360000);
                                 }
                             }
                         }
@@ -174,8 +174,8 @@ namespace AutoServers
                                 Console.WriteLine(exePath1 + " Закрыт - НЕТ ЛОГОВ \n Phase 2 не пройден");
                                 Thread.Sleep(10000);
                                 Process.Start(exePath1);
-                                Thread.Sleep(360000);
                                 Console.WriteLine(exePath1 + " Запуск / 5 минут ожидания данных");
+                                Thread.Sleep(360000);
                             }
                         }
                     }
@@ -223,8 +223,8 @@ namespace AutoServers
                                     Console.WriteLine(exePath1 + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
                                     Thread.Sleep(10000);
                                     Process.Start(exePath1);
-                                    Thread.Sleep(360000);
                                     Console.WriteLine(exePath1 + " Запуск / 5 минут ожидания данных");
+                                    Thread.Sleep(360000);
                                 }
                             }
                         }
@@ -233,8 +233,8 @@ namespace AutoServers
                     {
                         Console.WriteLine("Quantum I Start. НЕТ ЛОГОВ = СОХРАНЕНИЙ. Phase 1-2 не пройдены. 3я фаза не исполняется, отсутствует ЛОГ изменения");
                         Process.Start(exePath1);
-                        Thread.Sleep(360000);
                         Console.WriteLine(exePath1 + " Запуск / 5 минут ожидания данных");
+                        Thread.Sleep(360000);
                     }
                 }
             }
@@ -288,8 +288,8 @@ namespace AutoServers
                                     Console.WriteLine(exePath2 + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
                                     Thread.Sleep(10000);
                                     Process.Start(exePath2);
-                                    Thread.Sleep(360000);
                                     Console.WriteLine(exePath2 + " Запуск / 5 минут ожидания данных");
+                                    Thread.Sleep(360000);
                                 }
                             }
                         }
@@ -324,8 +324,8 @@ namespace AutoServers
                                 Console.WriteLine(exePath2 + " Закрыт - НЕТ ЛОГОВ \n Phase 2 не пройден");
                                 Thread.Sleep(10000);
                                 Process.Start(exePath2);
-                                Thread.Sleep(360000);
                                 Console.WriteLine(exePath2 + " Запуск / 5 минут ожидания данных");
+                                Thread.Sleep(360000);
                             }
                         }
                     }
@@ -372,8 +372,8 @@ namespace AutoServers
                                     Console.WriteLine(exePath2 + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
                                     Thread.Sleep(10000);
                                     Process.Start(exePath2);
-                                    Thread.Sleep(360000);
                                     Console.WriteLine(exePath2 + " Запуск / 5 минут ожидания данных");
+                                    Thread.Sleep(360000);
                                 }
                             }
                         }
@@ -382,8 +382,8 @@ namespace AutoServers
                     {
                         Console.WriteLine("Quantum II Start. НЕТ ЛОГОВ = СОХРАНЕНИЙ. Phase 1-2 не пройдены. 3я фаза не исполняется, отсутствует ЛОГ изменения");
                         Process.Start(exePath2);
-                        Thread.Sleep(360000);
                         Console.WriteLine(exePath2 + " Запуск / 5 минут ожидания данных");
+                        Thread.Sleep(360000);
                     }
                 }
             }
@@ -439,8 +439,8 @@ namespace AutoServers
                                     Console.WriteLine(exePath3 + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
                                     Thread.Sleep(10000);
                                     Process.Start(exePath3);
-                                    Thread.Sleep(360000);
                                     Console.WriteLine(exePath3 + " Запуск / 5 минут ожидания данных");
+                                    Thread.Sleep(360000);
                                 }
                             }
                         }
@@ -475,8 +475,8 @@ namespace AutoServers
                                 Console.WriteLine(exePath3 + " Закрыт - НЕТ ЛОГОВ \n Phase 2 не пройден");
                                 Thread.Sleep(10000);
                                 Process.Start(exePath3);
-                                Thread.Sleep(360000);
                                 Console.WriteLine(exePath3 + " Запуск / 5 минут ожидания данных");
+                                Thread.Sleep(360000);
                             }
                         }
                     }
@@ -524,8 +524,8 @@ namespace AutoServers
                                     Console.WriteLine(exePath3 + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
                                     Thread.Sleep(10000);
                                     Process.Start(exePath3);
-                                    Thread.Sleep(360000);
                                     Console.WriteLine(exePath3 + " Запуск / 5 минут ожидания данных");
+                                    Thread.Sleep(360000);
                                 }
                             }
                         }
@@ -534,8 +534,8 @@ namespace AutoServers
                     {
                         Console.WriteLine("Quantum NPC Start. НЕТ ЛОГОВ = СОХРАНЕНИЙ. Phase 1-2 не пройдены. 3я фаза не исполняется, отсутствует ЛОГ изменения");
                         Process.Start(exePath3);
-                        Thread.Sleep(360000);
                         Console.WriteLine(exePath3 + " Запуск / 5 минут ожидания данных");
+                        Thread.Sleep(360000);
                     }
                 }
             }
@@ -590,8 +590,8 @@ namespace AutoServers
                                     Console.WriteLine(exePath4 + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
                                     Thread.Sleep(10000);
                                     Process.Start(exePath4);
-                                    Thread.Sleep(360000);
                                     Console.WriteLine(exePath4 + " Запуск / 5 минут ожидания данных");
+                                    Thread.Sleep(360000);
                                 }
                             }
                         }
@@ -626,8 +626,8 @@ namespace AutoServers
                                 Console.WriteLine(exePath4 + " Закрыт - НЕТ ЛОГОВ \n Phase 2 не пройден");
                                 Thread.Sleep(10000);
                                 Process.Start(exePath4);
-                                Thread.Sleep(360000);
                                 Console.WriteLine(exePath4 + " Запуск / 5 минут ожидания данных");
+                                Thread.Sleep(360000);
                             }
                         }
                     }
@@ -639,7 +639,7 @@ namespace AutoServers
                     if (saveLOG4.LastWriteTime > DateTime.Now.AddMinutes(-6))
                     {
                         Console.WriteLine("Phase 2 OK \n" + saveLOG4.LastWriteTime + " " + saveLOG4.FullName);
-                        if (saveQ4.LastWriteTime > DateTime.Now.AddMinutes(-6))
+                        if (saveQ4.LastWriteTime > DateTime.Now.AddMinutes(-11))
                         {
                             Console.WriteLine("Phase 3 OK \n" + saveQ4.LastWriteTime + " " + saveQ4.FullName);
                             Console.WriteLine("Quantum Vanilla Ready / процесс не захвачен, работает в обходном методе");
@@ -675,8 +675,8 @@ namespace AutoServers
                                     Console.WriteLine(exePath4 + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
                                     Thread.Sleep(10000);
                                     Process.Start(exePath4);
-                                    Thread.Sleep(360000);
                                     Console.WriteLine(exePath4 + " Запуск / 5 минут ожидания данных");
+                                    Thread.Sleep(360000);
                                 }
                             }
                         }
@@ -685,8 +685,8 @@ namespace AutoServers
                     {
                         Console.WriteLine("Quantum Vanilla Start. НЕТ ЛОГОВ = СОХРАНЕНИЙ. Phase 1-2 не пройдены. 3я фаза не исполняется, отсутствует ЛОГ изменения");
                         Process.Start(exePath4);
-                        Thread.Sleep(360000);
                         Console.WriteLine(exePath4 + " Запуск / 5 минут ожидания данных");
+                        Thread.Sleep(360000);
                     }
                 }
             }
