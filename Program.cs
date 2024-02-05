@@ -85,7 +85,11 @@ namespace AutoServers
 
         public static void QuantumI()
         {
+<<<<<<< Updated upstream
             while (isRunning)
+=======
+            do
+>>>>>>> Stashed changes
             {
                 Environment.CurrentDirectory = exePath1_2;
                 var saveLOG1 = new FileInfo(exePath1Logs);
@@ -93,6 +97,7 @@ namespace AutoServers
                 if (isRunning == true)
                 {
                     Console.WriteLine("==================\n" + "Phase 1 OK Q1. Процесс существует");
+                    Thread.Sleep(100);
                     if (saveLOG1.LastWriteTime > DateTime.Now.AddMinutes(-6))
                     {
                         Console.WriteLine("Phase 2 OK \n" + saveLOG1.LastWriteTime + " " + saveLOG1.FullName);
@@ -242,7 +247,11 @@ namespace AutoServers
         }
         public static void QuantumII()
         {
+<<<<<<< Updated upstream
             while (isRunning2)
+=======
+            do
+>>>>>>> Stashed changes
             {
                 Environment.CurrentDirectory = exePath2_2;
                 var saveLOG2 = new FileInfo(exePath2Logs);
@@ -250,6 +259,7 @@ namespace AutoServers
                 if (isRunning2 == true)
                 {
                     Console.WriteLine("==================\n" + "Phase 1 OK Q2. Процесс существует");
+                    Thread.Sleep(100);
                     if (saveLOG2.LastWriteTime > DateTime.Now.AddMinutes(-6))
                     {
                         Console.WriteLine("Phase 2 OK \n" + saveLOG2.LastWriteTime + " " + saveLOG2.FullName);
@@ -400,6 +410,7 @@ namespace AutoServers
                 if (isRunning3 == true)
                 {
                     Console.WriteLine("==================\n" + "Phase 1 OK Q NPC. Процесс существует");
+                    Thread.Sleep(100);
                     if (saveLOGNPC.LastWriteTime > DateTime.Now.AddMinutes(-6))
                     {
                         Console.WriteLine("Phase 2 OK \n" + saveLOGNPC.LastWriteTime + " " + saveLOGNPC.FullName);
@@ -551,6 +562,7 @@ namespace AutoServers
                 if (isRunning4 == true)
                 {
                     Console.WriteLine("==================\n" + "Phase 1 OK Q Vanilla. Процесс существует");
+                    Thread.Sleep(100);
                     if (saveLOG4.LastWriteTime > DateTime.Now.AddMinutes(-6))
                     {
                         Console.WriteLine("Phase 2 OK \n" + saveLOG4.LastWriteTime + " " + saveLOG4.FullName);
