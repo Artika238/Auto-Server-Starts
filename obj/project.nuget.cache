@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CX/drCrMmrpcaIUrmWV6zA6NR7aOEW98d8aBeFqzVga62VYL44MyWb0TdRmuQu2VijxN4K6ovgpU+HFk56XHLQ==",
+  "dgSpecHash": "DQMHespu2BS62Mr+JIlwSvimr6pk89xFKcalBN33V8Ax/q1qIVyCOD3J5cYKRsPo6kBy2KWxJnusoIJIxYqZ7w==",
   "success": true,
-  "projectFilePath": "D:\\GitHub\\Auto Start Servers\\Auto-Server-Starts\\Auto Server Start.csproj",
+  "projectFilePath": "H:\\Documents\\GitHub\\Auto-Server-Starts\\Auto Server Start.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Artika\\.nuget\\packages\\discord.net\\3.12.0\\discord.net.3.12.0.nupkg.sha512",
     "C:\\Users\\Artika\\.nuget\\packages\\discord.net.commands\\3.12.0\\discord.net.commands.3.12.0.nupkg.sha512",

@@ -85,7 +85,7 @@ namespace AutoServers
 
         public static void QuantumI()
         {
-            while(isRunning) 
+            while (isRunning)
             {
                 Environment.CurrentDirectory = exePath1_2;
                 var saveLOG1 = new FileInfo(exePath1Logs);
@@ -238,11 +238,11 @@ namespace AutoServers
                     }
                 }
             }
-            while (true);
+            while (true) ;
         }
         public static void QuantumII()
         {
-            while(isRunning2)
+            while (isRunning2)
             {
                 Environment.CurrentDirectory = exePath2_2;
                 var saveLOG2 = new FileInfo(exePath2Logs);
@@ -387,12 +387,12 @@ namespace AutoServers
                     }
                 }
             }
-            while (true);
+            while (true) ;
         }
 
         public static void QuantumNPC()
         {
-            while(isRunning3)
+            while (isRunning3)
             {
                 Environment.CurrentDirectory = exePath3_2;
                 var saveLOGNPC = new FileInfo(exePath3Logs);
@@ -539,11 +539,11 @@ namespace AutoServers
                     }
                 }
             }
-            while (true);
+            while (true) ;
         }
         public static void QuantumVanilla()
         {
-            while(isRunning4)
+            while (isRunning4)
             {
                 Environment.CurrentDirectory = exePath4_2;
                 var saveLOG4 = new FileInfo(exePath4Logs);
@@ -690,7 +690,7 @@ namespace AutoServers
                     }
                 }
             }
-            while (true);
+            while (true) ;
         }
 
         public static void Main2()
@@ -724,4 +724,3 @@ namespace AutoServers
     }
 
 }
-
