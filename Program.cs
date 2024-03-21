@@ -18,1086 +18,1101 @@ using Discord.Commands;
 using Discord.Rest;
 using Discord.Utils;
 using System.Threading.Channels;
-using Windows.Media.Protection.PlayReady;
 using System.ComponentModel;
 
 namespace AutoServers
 {
     public class Program
     {
-        static void Main()
-        {
-            Thread Main = new Thread(Main2);
-            Thread quant1 = new Thread(QuantumI);
-            Thread quant2 = new Thread(QuantumII);
-            Thread quantNPC = new Thread(QuantumNPC);
-            Thread quantNPCHARD = new Thread(QuantumNPCHARD);
-            Thread quantLobby = new Thread(QuantumLobby);
-            Main.Start();
-            quant1.Start();
-            quant2.Start();
-            quantNPC.Start();
-            quantNPCHARD.Start();
-            quantLobby.Start();
-        }
+        //CONFIG ZONE
+        //EXE Torch
+        public static string TourchEXEPATCH1 = @"C:\SERVER9-HARD\Torch.Server.exe";
+        public static string exePathServer1 = @"C:\SERVER9-HARD";
 
-        public static int serv1, serv2, serv3;
-        public static bool isRunning = Process.GetProcessesByName("Torch.Server").FirstOrDefault(p => p.MainModule.FileName.StartsWith(@"C:\SERVER9-HARD")) != default(Process);
-        public static bool isRunning2 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(g => g.MainModule.FileName.StartsWith(@"G:\SERVER11-GALAXY2")) != default(Process);
-        public static bool isRunning3 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(j => j.MainModule.FileName.StartsWith(@"G:\TORCH-Server_14")) != default(Process);
-        public static bool isRunning4 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(t => t.MainModule.FileName.StartsWith(@"G:\TORCH-Server-15")) != default(Process);
-        public static bool isRunningLOBBY = Process.GetProcessesByName("Torch.Server").FirstOrDefault(p => p.MainModule.FileName.StartsWith(@"E:\TORCH-Server_13")) != default(Process);
-        public static string exePath1 = @"C:\SERVER9-HARD\Torch.Server.exe";
-        public static string exePath2 = @"G:\SERVER11-GALAXY2\Torch.Server.exe";
-        public static string exePath3 = @"G:\TORCH-Server_14\Torch.Server.exe";
-        public static string exePath4 = @"G:\TORCH-Server-15\Torch.Server.exe";
-        public static string exePatchLobby = @"E:\TORCH-Server_13\Torch.Server.exe";
+        public static string TourchEXEPATCH2 = @"G:\SERVER11-GALAXY2\Torch.Server.exe";
+        public static string exePathServer2 = @"G:\SERVER11-GALAXY2";
 
-        public static string exePath1_2 = @"C:\SERVER9-HARD";
-        public static string exePath2_2 = @"G:\SERVER11-GALAXY2";
-        public static string exePath3_2 = @"G:\TORCH-Server_14";
-        public static string exePath4_2 = @"G:\TORCH-Server-15";
-        public static string exePath5_2 = @"E:\TORCH-Server_13";
+        public static string TourchEXEPATCH3 = @"G:\TORCH-Server_14\Torch.Server.exe";
+        public static string exePathServer3 = @"G:\TORCH-Server_14";
 
+        public static string TourchEXEPATCH4 = @"G:\TORCH-Server-15\Torch.Server.exe";
+        public static string exePathServer4 = @"G:\TORCH-Server-15";
+
+        public static string TourchEXEPATCH5 = @"E:\TORCH-Server_13\Torch.Server.exe";
+        public static string exePathServer5 = @"E:\TORCH-Server_13";
+
+        //Save
         public static string exePath1Save = @"C:\SERVER9-HARD\Instance\Saves\Quantum\SANDBOX_0_0_0_.sbs";
         public static string exePath2Save = @"G:\SERVER11-GALAXY2\Instance\Saves\Quantum\SANDBOX_0_0_0_.sbs";
         public static string exePath3Save = @"G:\TORCH-Server_14\Instance\Saves\Quantum\SANDBOX_0_0_0_.sbs";
-        public static string exePath4Save = @"G:\TORCH-Server-15\Instance\Saves\QuantumNPC\SANDBOX_0_0_0_.sbsB5";
-        public static string exePatch5Save = @"E:\TORCH-Server_13\Instance\Saves\Quantum\SANDBOX_0_0_0_.sbs";
+        public static string exePath4Save = @"G:\TORCH-Server-15\Instance\Saves\QuantumNPC\SANDBOX_0_0_0_.sbs";
+        public static string exePath5Save = @"E:\TORCH-Server_13\Instance\Saves\Quantum\SANDBOX_0_0_0_.sbs";
 
+        //Logs
         public static string exePath1Logs = @"C:\SERVER9-HARD\Logs\Keen-Quantum1.log";
         public static string exePath2Logs = @"G:\SERVER11-GALAXY2\Logs\Keen-Quantum2.log";
         public static string exePath3Logs = @"G:\TORCH-Server_14\Logs\Keen-QuantumNPC.log";
         public static string exePath4Logs = @"G:\TORCH-Server-15\Logs\Keen-QuantumNPCII.log";
-        public static string exePatch5Logs = @"E:\TORCH-Server_13\Logs\Keen-QuantumLobby.log";
+        public static string exePath5Logs = @"E:\TORCH-Server_13\Logs\Keen-QuantumLobby.log";
 
-        public static DateTime dataTimeQ1 = File.GetLastWriteTime(exePath1Save);
-        public static DateTime dataTimeQ2 = File.GetLastWriteTime(exePath2Save);
-        public static DateTime dataTimeVanilla = File.GetLastWriteTime(exePath4Save);
-        public static DateTime dataTimeNPC = File.GetLastWriteTime(exePath3Save);
+        //DATA SAVE & LOGS
         public static DateTime dataTimeQ1Logs = File.GetLastWriteTime(exePath1Logs);
+        public static DateTime dataTimeQ1Save = File.GetLastWriteTime(exePath1Save);
+
         public static DateTime dataTimeQ2Logs = File.GetLastWriteTime(exePath2Logs);
-        public static DateTime dataTimeVanillaLogs = File.GetLastWriteTime(exePath4Logs);
-        public static DateTime dataTimeNPCLogs = File.GetLastWriteTime(exePath3Logs);
-        public static DateTime now = DateTime.Now;
-        public static DateTime MIN = DateTime.MinValue;
-        public static DateTime MAX = DateTime.MaxValue;
-        public static int servers1;
-        public static int servers1_2;
-        public static int servers2;
-        public static int servers3;
-        public static int servers4;
+        public static DateTime dataTimeQ2Save = File.GetLastWriteTime(exePath2Save);
 
-        Int64 x;
+        public static DateTime dataTimeQ3Logs = File.GetLastWriteTime(exePath3Logs);
+        public static DateTime dataTimeQ3Save = File.GetLastWriteTime(exePath3Save);
 
-        public static void QuantumI()
+        public static DateTime dataTimeQ4Logs = File.GetLastWriteTime(exePath4Logs);
+        public static DateTime dataTimeQ4Save = File.GetLastWriteTime(exePath4Save);
+
+        public static DateTime dataTimeQ5Logs = File.GetLastWriteTime(exePath5Logs);
+        public static DateTime dataTimeQ5Save = File.GetLastWriteTime(exePath5Save);
+        //BOOLs
+        public static bool CheckQ1 = true || false;
+        public static bool CheckQ1LOG = true || false;
+        public static bool CheckQ1SAVE = true || false;
+
+        public static bool CheckQ2 = true || false;
+        public static bool CheckQ2LOG = true || false;
+        public static bool CheckQ2SAVE = true || false;
+
+        public static bool CheckQ3 = true || false;
+        public static bool CheckQ3LOG = true || false;
+        public static bool CheckQ3SAVE = true || false;
+
+        public static bool CheckQ4 = true || false;
+        public static bool CheckQ4LOG = true || false;
+        public static bool CheckQ4SAVE = true || false;
+
+        public static bool CheckQ5 = true || false;
+        public static bool CheckQ5LOG = true || false;
+        public static bool CheckQ5SAVE = true || false;
+
+        static void Main()
         {
-            do
+            Thread Q_I_C = new Thread(Quantum_I_Check);
+            Thread Q_I_CL = new Thread(Quantum_I_Check_LOG);
+            Thread Q_I_CS = new Thread(Quantum_I_Check_SAVE);
+            Thread Q_I_KILL = new Thread(Quantum_I_Killer);
+            Q_I_C.Start();
+            Q_I_CL.Start();
+            Q_I_CS.Start();
+            Q_I_KILL.Start();
+
+            Thread Q_II_C = new Thread(Quantum_II_Check);
+            Thread Q_II_CL = new Thread(Quantum_II_Check_LOG);
+            Thread Q_II_CS = new Thread(Quantum_II_Check_SAVE);
+            Thread Q_II_KILL = new Thread(Quantum_II_Killer);
+            Q_II_C.Start();
+            Q_II_CL.Start();
+            Q_II_CS.Start();
+            Q_II_KILL.Start();
+
+            Thread Q_NPC_C = new Thread(Quantum_NPC_Check);
+            Thread Q_NPC_CL = new Thread(Quantum_NPC_Check_LOG);
+            Thread Q_NPC_CS = new Thread(Quantum_NPC_Check_SAVE);
+            Thread Q_NPC_KILL = new Thread(Quantum_NPC_Killer);
+            Q_NPC_C.Start();
+            Q_NPC_CL.Start();
+            Q_NPC_CS.Start();
+            Q_NPC_KILL.Start();
+
+            Thread Q_NPC_II_C = new Thread(Quantum_NPC_II_Check);
+            Thread Q_NPC_II_CL = new Thread(Quantum_NPC_II_Check_LOG);
+            Thread Q_NPC_II_CS = new Thread(Quantum_NPC_II_Check_SAVE);
+            Thread Q_NPC_II_KILL = new Thread(Quantum_NPC_II_Killer);
+            Q_NPC_II_C.Start();
+            Q_NPC_II_CL.Start();
+            Q_NPC_II_CS.Start();
+            Q_NPC_II_KILL.Start();
+
+            Thread Q_LOB_C = new Thread(Quantum_LOB_Check);
+            Thread Q_LOB_CL = new Thread(Quantum_LOB_Check_LOG);
+            Thread Q_LOB_CS = new Thread(Quantum_LOB_Check_SAVE);
+            Thread Q_LOB_KILL = new Thread(Quantum_LOB_Killer);
+            Q_LOB_C.Start();
+            Q_LOB_CL.Start();
+            Q_LOB_CS.Start();
+            Q_LOB_KILL.Start();
+        }
+
+        public static void Quantum_I_Check()
+        {
+            while (true)
             {
-                Environment.CurrentDirectory = exePath1_2;
-                var saveLOG1 = new FileInfo(exePath1Logs);
-                var saveQ1 = new FileInfo(exePath1Save);
-                if (isRunning == true)
+                Thread.Sleep(100);
+                try
                 {
-                    Console.WriteLine("==================\n" + "Phase 1 OK Q1. Процесс существует");
-                    if (saveLOG1.LastWriteTime > DateTime.Now.AddMinutes(-2))
+                    bool isRunning = Process.GetProcessesByName("Torch.Server").FirstOrDefault(p => p.MainModule.FileName.StartsWith(@"C:\SERVER9-HARD")) != default(Process);
+                    Process[] runningProcesses = Process.GetProcesses();
+                    foreach (Process process in runningProcesses)
                     {
-                        Console.WriteLine("Phase 2 OK \n" + saveLOG1.LastWriteTime + " " + saveLOG1.FullName);
-                        if (saveQ1.LastWriteTime > DateTime.Now.AddMinutes(-11))
-                        {
-                            Console.WriteLine("Phase 3 OK \n" + saveQ1.LastWriteTime + " " + saveQ1.FullName);
-                            Console.WriteLine("Quantum I Ready");
-                            Thread.Sleep(10000);
-                        }
-                        else
-                        {
-                            string targetProcessPath = exePath1;
-                            string targetProcessName = "Torch.Server";
+                        process.Refresh();
+                    }
 
-                            Process[] runningProcesses = Process.GetProcesses();
-                            foreach (Process process in runningProcesses)
-                            {
-                                if (process.ProcessName == targetProcessName &&
-                                    process.MainModule != null &&
-                                    string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
-                                {
-                                    try
-                                    {
-                                        process.Refresh();
-                                        process.CloseMainWindow();
-                                        process.Close();
-                                    }
-                                    catch (NullReferenceException)
-                                    {
-                                        if (isRunning == false)
-                                        {
-                                            process.Refresh();
-                                            Console.WriteLine("Quantum I - Попытка закрыть несуществующий торч");
-                                            runningProcesses = null;
-                                        }
-                                    }
-                                    catch (Win32Exception)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum I - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    catch (InvalidOperationException)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum I - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    finally
-                                    {
-                                        Thread.Sleep(10000);
-                                    }
-
-                                    Console.WriteLine(exePath1 + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
-                                    Thread.Sleep(10000);
-                                    Process.Start(exePath1);
-                                    Console.WriteLine(exePath1 + " Запуск / 5 минут ожидания данных");
-                                    Thread.Sleep(360000);
-                                    process.Refresh();
-                                }
-                            }
-                        }
+                    if (isRunning == true)
+                    {
+                        CheckQ1 = true;
                     }
                     else
                     {
-                        string targetProcessPath = exePath1;
-                        string targetProcessName = "Torch.Server";
-
-                        Process[] runningProcesses = Process.GetProcesses();
-                        foreach (Process process in runningProcesses)
-                        {
-                            if (process.ProcessName == targetProcessName &&
-                                process.MainModule != null &&
-                                string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
-                            {
-                                try
-                                {
-                                    process.Refresh();
-                                    process.CloseMainWindow();
-                                    process.Close();
-                                }
-                                catch (NullReferenceException)
-                                {
-                                    if (isRunning == false)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum I - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                }
-                                catch (Win32Exception)
-                                {
-                                    process.Refresh();
-                                    Console.WriteLine("Quantum I - Попытка закрыть несуществующий торч");
-                                    runningProcesses = null;
-                                }
-                                catch (InvalidOperationException)
-                                {
-                                    process.Refresh();
-                                    Console.WriteLine("Quantum I - Попытка закрыть несуществующий торч");
-                                    runningProcesses = null;
-                                }
-                                finally
-                                {
-                                    Thread.Sleep(10000);
-                                }
-
-                                Console.WriteLine(exePath1 + " Закрыт - НЕТ ЛОГОВ \n Phase 2 не пройден");
-                                Thread.Sleep(10000);
-                                Process.Start(exePath1);
-                                Console.WriteLine(exePath1 + " Запуск / 5 минут ожидания данных");
-                                Thread.Sleep(360000);
-                                process.Refresh();
-                            }
-                        }
+                        CheckQ1 = false;
                     }
+                    Thread.Sleep(100);
+                }
+                catch (Win32Exception)
+                {
+                    Console.WriteLine("Потерян процесс");
+                }
+                finally
+                {
+                    CheckQ1 = false;
+                    Thread.Sleep(1000);
+                }
+            }
+        }
 
+        public static void Quantum_I_Check_LOG()
+        {
+            while (true)
+            {
+                var LogQ1 = new FileInfo(exePath1Logs);
+                if (LogQ1.LastWriteTime > DateTime.Now.AddMinutes(-2))
+                {
+                    CheckQ1LOG = true;
                 }
                 else
                 {
-                    Console.WriteLine("==================\n" + "Phase 1 не пройдена Q1. Процесс не найден, либо он не запущен. Игнорируем и ждем проверку логов/сохранений");
-                    if (saveLOG1.LastWriteTime > DateTime.Now.AddMinutes(-2))
-                    {
-                        Console.WriteLine("Phase 2 OK \n" + saveLOG1.LastWriteTime + " " + saveLOG1.FullName);
-                        if (saveQ1.LastWriteTime > DateTime.Now.AddMinutes(-11))
-                        {
-                            Console.WriteLine("Phase 3 OK \n" + saveQ1.LastWriteTime + " " + saveQ1.FullName);
-                            Console.WriteLine("Quantum I Ready / процесс не захвачен, работает в обходном методе");
-                            Thread.Sleep(10000);
-                        }
-                        else
-                        {
-                            string targetProcessPath = exePath1;
-                            string targetProcessName = "Torch.Server";
-
-                            Process[] runningProcesses = Process.GetProcesses();
-                            foreach (Process process in runningProcesses)
-                            {
-                                if (process.ProcessName == targetProcessName &&
-                                    process.MainModule != null &&
-                                    string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
-                                {
-                                    try
-                                    {
-                                        process.Refresh();
-                                        process.CloseMainWindow();
-                                        process.Close();
-                                    }
-                                    catch (NullReferenceException)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum I - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    catch (Win32Exception)
-                                    {
-                                        Console.WriteLine("Quantum I - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    catch (InvalidOperationException)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum I - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    finally
-                                    {
-                                        Thread.Sleep(10000);
-                                    }
-
-                                    Console.WriteLine(exePath1 + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
-                                    Thread.Sleep(10000);
-                                    Process.Start(exePath1);
-                                    Console.WriteLine(exePath1 + " Запуск / 5 минут ожидания данных");
-                                    Thread.Sleep(360000);
-                                    process.Refresh();
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Quantum I Start. НЕТ ЛОГОВ = СОХРАНЕНИЙ. Phase 1-2 не пройдены. 3я фаза не исполняется, отсутствует ЛОГ изменения");
-                        Process.Start(exePath1);
-                        Console.WriteLine(exePath1 + " Запуск / 5 минут ожидания данных");
-                        Thread.Sleep(360000);
-                    }
+                    CheckQ1LOG = false;
                 }
+                Thread.Sleep(1000);
             }
-            while (true) ;
         }
-        public static void QuantumII()
+
+        public static void Quantum_I_Check_SAVE()
         {
-            do
+            while (true)
             {
-                Environment.CurrentDirectory = exePath2_2;
-                var saveLOG2 = new FileInfo(exePath2Logs);
-                var saveQ2 = new FileInfo(exePath2Save);
-                if (isRunning2 == true)
+                var SaveQ1 = new FileInfo(exePath1Save);
+                if (SaveQ1.LastWriteTime > DateTime.Now.AddMinutes(-11))
                 {
-                    Console.WriteLine("==================\n" + "Phase 1 OK Q2. Процесс существует");
-                    if (saveLOG2.LastWriteTime > DateTime.Now.AddMinutes(-2))
-                    {
-                        Console.WriteLine("Phase 2 OK \n" + saveLOG2.LastWriteTime + " " + saveLOG2.FullName);
-                        if (saveQ2.LastWriteTime > DateTime.Now.AddMinutes(-11))
-                        {
-                            Console.WriteLine("Phase 3 OK \n" + saveQ2.LastWriteTime + " " + saveQ2.FullName);
-                            Console.WriteLine("Quantum II Ready");
-                            Thread.Sleep(10000);
-                        }
-                        else
-                        {
-                            string targetProcessPath = exePath2;
-                            string targetProcessName = "Torch.Server";
-
-                            Process[] runningProcesses = Process.GetProcesses();
-                            foreach (Process process in runningProcesses)
-                            {
-                                if (process.ProcessName == targetProcessName &&
-                                    process.MainModule != null &&
-                                    string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
-                                {
-                                    try
-                                    {
-                                        process.Refresh();
-                                        process.CloseMainWindow();
-                                        process.Close();
-                                    }
-                                    catch (NullReferenceException)
-                                    {
-                                        if (isRunning2 == false)
-                                        {
-                                            process.Refresh();
-                                            Console.WriteLine("Quantum II - Попытка закрыть несуществующий торч");
-                                            runningProcesses = null;
-                                        }
-                                    }
-                                    catch (Win32Exception)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum II - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    catch (InvalidOperationException)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum II - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    finally
-                                    {
-                                        Thread.Sleep(10000);
-                                    }
-                                    Console.WriteLine(exePath2 + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
-                                    Thread.Sleep(10000);
-                                    Process.Start(exePath2);
-                                    Console.WriteLine(exePath2 + " Запуск / 5 минут ожидания данных");
-                                    Thread.Sleep(360000);
-                                    process.Refresh();
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        string targetProcessPath = exePath2;
-                        string targetProcessName = "Torch.Server";
-
-                        Process[] runningProcesses = Process.GetProcesses();
-                        foreach (Process process in runningProcesses)
-                        {
-                            if (process.ProcessName == targetProcessName &&
-                                process.MainModule != null &&
-                                string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
-                            {
-                                try
-                                {
-                                    process.Refresh();
-                                    process.CloseMainWindow();
-                                    process.Close();
-                                }
-                                catch (NullReferenceException)
-                                {
-                                    process.Refresh();
-                                    Console.WriteLine("Quantum II - Попытка закрыть несуществующий торч");
-                                    runningProcesses = null;
-                                }
-                                catch (Win32Exception)
-                                {
-                                    process.Refresh();
-                                    Console.WriteLine("Quantum II - Попытка закрыть несуществующий торч");
-                                    runningProcesses = null;
-                                }
-                                catch (InvalidOperationException)
-                                {
-                                    process.Refresh();
-                                    Console.WriteLine("Quantum II - Попытка закрыть несуществующий торч");
-                                    runningProcesses = null;
-                                }
-                                finally
-                                {
-                                    Thread.Sleep(1000);
-                                }
-
-                                Console.WriteLine(exePath2 + " Закрыт - НЕТ ЛОГОВ \n Phase 2 не пройден");
-                                Thread.Sleep(10000);
-                                Process.Start(exePath2);
-                                Console.WriteLine(exePath2 + " Запуск / 5 минут ожидания данных");
-                                Thread.Sleep(360000);
-                                process.Refresh();
-                            }
-                        }
-                    }
-
+                    CheckQ1SAVE = true;
                 }
                 else
                 {
-                    Console.WriteLine("==================\n" + "Phase 1 не пройдена Q2. Процесс не найден, либо он не запущен. Игнорируем и ждем проверку логов/сохранений");
-                    if (saveLOG2.LastWriteTime > DateTime.Now.AddMinutes(-6))
-                    {
-                        Console.WriteLine("Phase 2 OK \n" + saveLOG2.LastWriteTime + " " + saveLOG2.FullName);
-                        if (saveQ2.LastWriteTime > DateTime.Now.AddMinutes(-11))
-                        {
-                            Console.WriteLine("Phase 3 OK \n" + saveQ2.LastWriteTime + " " + saveQ2.FullName);
-                            Console.WriteLine("Quantum II Ready / процесс не захвачен, работает в обходном методе");
-                            Thread.Sleep(10000);
-                        }
-                        else
-                        {
-                            string targetProcessPath = exePath2;
-                            string targetProcessName = "Torch.Server";
-
-                            Process[] runningProcesses = Process.GetProcesses();
-                            foreach (Process process in runningProcesses)
-                            {
-                                if (process.ProcessName == targetProcessName &&
-                                    process.MainModule != null &&
-                                    string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
-                                {
-                                    try
-                                    {
-                                        process.Refresh();
-                                        process.CloseMainWindow();
-                                        process.Close();
-                                    }
-                                    catch (NullReferenceException)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum II - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    catch (Win32Exception)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum II - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    catch (InvalidOperationException)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum II - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    finally
-                                    {
-                                        Thread.Sleep(1000);
-                                    }
-                                    Console.WriteLine(exePath2 + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
-                                    Thread.Sleep(10000);
-                                    Process.Start(exePath2);
-                                    Console.WriteLine(exePath2 + " Запуск / 5 минут ожидания данных");
-                                    Thread.Sleep(360000);
-                                    process.Refresh();
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Quantum II Start. НЕТ ЛОГОВ = СОХРАНЕНИЙ. Phase 1-2 не пройдены. 3я фаза не исполняется, отсутствует ЛОГ изменения");
-                        Process.Start(exePath2);
-                        Console.WriteLine(exePath2 + " Запуск / 5 минут ожидания данных");
-                        Thread.Sleep(360000);
-                    }
+                    CheckQ1SAVE = false;
                 }
+                Thread.Sleep(1000);
             }
-            while (true) ;
         }
 
-        public static void QuantumNPC()
+        public static void Quantum_II_Check()
         {
-            do
+            while (true)
             {
-                Environment.CurrentDirectory = exePath3_2;
-                var saveLOGNPC = new FileInfo(exePath3Logs);
-                var saveQNPC = new FileInfo(exePath3Save);
-                if (isRunning3 == true)
+                try
                 {
-                    Console.WriteLine("==================\n" + "Phase 1 OK Q NPC. Процесс существует");
-                    if (saveLOGNPC.LastWriteTime > DateTime.Now.AddMinutes(-6))
+                    Thread.Sleep(100);
+                    bool isRunning2 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(p => p.MainModule.FileName.StartsWith(@"G:\SERVER11-GALAXY2")) != default(Process);
+                    Process[] runningProcesses = Process.GetProcesses();
+                    foreach (Process process in runningProcesses)
                     {
-                        Console.WriteLine("Phase 2 OK \n" + saveLOGNPC.LastWriteTime + " " + saveLOGNPC.FullName);
-                        if (saveQNPC.LastWriteTime > DateTime.Now.AddMinutes(-11))
-                        {
-                            Console.WriteLine("Phase 3 OK \n" + saveQNPC.LastWriteTime + " " + saveQNPC.FullName);
-                            Console.WriteLine("Quantum NPC Ready");
-                            Thread.Sleep(10000);
-                        }
-                        else
-                        {
-                            string targetProcessPath = exePath3;
-                            string targetProcessName = "Torch.Server";
+                        process.Refresh();
+                    }
 
-                            Process[] runningProcesses = Process.GetProcesses();
-                            foreach (Process process in runningProcesses)
-                            {
-                                if (process.ProcessName == targetProcessName &&
-                                    process.MainModule != null &&
-                                    string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
-                                {
-                                    try
-                                    {
-                                        process.Refresh();
-                                        process.CloseMainWindow();
-                                        process.Close();
-                                    }
-                                    catch (NullReferenceException)
-                                    {
-                                        if (isRunning3 == false)
-                                        {
-                                            process.Refresh();
-                                            Console.WriteLine("Quantum NPC - Попытка закрыть несуществующий торч");
-                                            runningProcesses = null;
-                                        }
-                                    }
-                                    catch (Win32Exception)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum NPC - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    catch (InvalidOperationException)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum NPC - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    finally
-                                    {
-                                        Thread.Sleep(1000);
-                                    }
-
-                                    Console.WriteLine(exePath3 + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
-                                    Thread.Sleep(10000);
-                                    Process.Start(exePath3);
-                                    Console.WriteLine(exePath3 + " Запуск / 5 минут ожидания данных");
-                                    Thread.Sleep(360000);
-                                    process.Refresh();
-                                }
-                            }
-                        }
+                    if (isRunning2 == true)
+                    {
+                        CheckQ2 = true;
                     }
                     else
                     {
-                        string targetProcessPath = exePath3;
-                        string targetProcessName = "Torch.Server";
-
-                        Process[] runningProcesses = Process.GetProcesses();
-                        foreach (Process process in runningProcesses)
-                        {
-                            if (process.ProcessName == targetProcessName &&
-                                process.MainModule != null &&
-                                string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
-                            {
-                                try
-                                {
-                                    process.Refresh();
-                                    process.CloseMainWindow();
-                                    process.Close();
-                                }
-                                catch (NullReferenceException)
-                                {
-                                    process.Refresh();
-                                    Console.WriteLine("Quantum NPC - Попытка закрыть несуществующий торч");
-                                    runningProcesses = null;
-                                }
-                                catch (Win32Exception)
-                                {
-                                    process.Refresh();
-                                    Console.WriteLine("Quantum NPC - Попытка закрыть несуществующий торч");
-                                    runningProcesses = null;
-                                }
-                                catch (InvalidOperationException)
-                                {
-                                    process.Refresh();
-                                    Console.WriteLine("Quantum NPC - Попытка закрыть несуществующий торч");
-                                    runningProcesses = null;
-                                }
-                                finally
-                                {
-                                    Thread.Sleep(1000);
-                                }
-
-                                Console.WriteLine(exePath3 + " Закрыт - НЕТ ЛОГОВ \n Phase 2 не пройден");
-                                Thread.Sleep(10000);
-                                Process.Start(exePath3);
-                                Console.WriteLine(exePath3 + " Запуск / 5 минут ожидания данных");
-                                Thread.Sleep(360000);
-                                process.Refresh();
-                            }
-                        }
+                        CheckQ2 = false;
                     }
-
+                    Thread.Sleep(100);
                 }
-                else
+                catch (Win32Exception)
                 {
-                    Console.WriteLine("==================\n" + "Phase 1 не пройдена Q NPC. Процесс не найден, либо он не запущен. Игнорируем и ждем проверку логов/сохранений");
-                    if (saveLOGNPC.LastWriteTime > DateTime.Now.AddMinutes(-6))
-                    {
-                        Console.WriteLine("Phase 2 OK \n" + saveLOGNPC.LastWriteTime + " " + saveLOGNPC.FullName);
-                        if (saveQNPC.LastWriteTime > DateTime.Now.AddMinutes(-11))
-                        {
-                            Console.WriteLine("Phase 3 OK \n" + saveQNPC.LastWriteTime + " " + saveQNPC.FullName);
-                            Console.WriteLine("Quantum NPC Ready / процесс не захвачен, работает в обходном методе");
-                            Thread.Sleep(10000);
-                        }
-                        else
-                        {
-                            string targetProcessPath = exePath3;
-                            string targetProcessName = "Torch.Server";
-
-                            Process[] runningProcesses = Process.GetProcesses();
-                            foreach (Process process in runningProcesses)
-                            {
-                                if (process.ProcessName == targetProcessName &&
-                                    process.MainModule != null &&
-                                    string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
-                                {
-                                    try
-                                    {
-                                        process.Refresh();
-                                        process.CloseMainWindow();
-                                        process.Close();
-                                    }
-                                    catch (NullReferenceException)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum NPC - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    catch (Win32Exception)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum NPC - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    catch (InvalidOperationException)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum NPC - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    finally
-                                    {
-                                        Thread.Sleep(1000);
-                                    }
-
-                                    Console.WriteLine(exePath3 + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
-                                    Thread.Sleep(10000);
-                                    Process.Start(exePath3);
-                                    Console.WriteLine(exePath3 + " Запуск / 5 минут ожидания данных");
-                                    Thread.Sleep(360000);
-                                    process.Refresh();
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Quantum NPC Start. НЕТ ЛОГОВ = СОХРАНЕНИЙ. Phase 1-2 не пройдены. 3я фаза не исполняется, отсутствует ЛОГ изменения");
-                        Process.Start(exePath3);
-                        Console.WriteLine(exePath3 + " Запуск / 5 минут ожидания данных");
-                        Thread.Sleep(360000);
-                    }
+                    Console.WriteLine("Потерян процесс");
                 }
-            }
-            while (true) ;
-        }
-        public static void QuantumNPCHARD()
-        {
-            do
-            {
-                Environment.CurrentDirectory = exePath4_2;
-                var saveLOG4 = new FileInfo(exePath4Logs);
-                var saveQ4 = new FileInfo(exePath4Save);
-                if (isRunning4 == true)
+                finally
                 {
-                    Console.WriteLine("==================\n" + "Phase 1 OK Q NPCHARD. Процесс существует");
-                    if (saveLOG4.LastWriteTime > DateTime.Now.AddMinutes(-2))
-                    {
-                        Console.WriteLine("Phase 2 OK \n" + saveLOG4.LastWriteTime + " " + saveLOG4.FullName);
-                        if (saveQ4.LastWriteTime > DateTime.Now.AddMinutes(-11))
-                        {
-                            Console.WriteLine("Phase 3 OK \n" + saveQ4.LastWriteTime + " " + saveQ4.FullName);
-                            Console.WriteLine("Quantum NPCHARD Ready");
-                            Thread.Sleep(10000);
-                        }
-                        else
-                        {
-                            string targetProcessPath = exePath4;
-                            string targetProcessName = "Torch.Server";
-
-                            Process[] runningProcesses = Process.GetProcesses();
-                            foreach (Process process in runningProcesses)
-                            {
-                                if (process.ProcessName == targetProcessName &&
-                                    process.MainModule != null &&
-                                    string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
-                                {
-                                    try
-                                    {
-                                        process.Refresh();
-                                        process.CloseMainWindow();
-                                        process.Close();
-                                    }
-                                    catch (NullReferenceException)
-                                    {
-                                        if (isRunning4 == false)
-                                        {
-                                            process.Refresh();
-                                            Console.WriteLine("Quantum NPCHARD - Попытка закрыть несуществующий торч");
-                                            runningProcesses = null;
-                                        }
-                                    }
-                                    catch (Win32Exception)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum NPCHARD - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    catch (InvalidOperationException)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum NPCHARD - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    finally
-                                    {
-                                        Thread.Sleep(1000);
-                                    }
-
-                                    Console.WriteLine(exePath4 + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
-                                    Thread.Sleep(10000);
-                                    Process.Start(exePath4);
-                                    Console.WriteLine(exePath4 + " Запуск / 5 минут ожидания данных");
-                                    Thread.Sleep(360000);
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        string targetProcessPath = exePath4;
-                        string targetProcessName = "Torch.Server";
-
-                        Process[] runningProcesses = Process.GetProcesses();
-                        foreach (Process process in runningProcesses)
-                        {
-                            if (process.ProcessName == targetProcessName &&
-                                process.MainModule != null &&
-                                string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
-                            {
-                                try
-                                {
-                                    process.Refresh();
-                                    process.CloseMainWindow();
-                                    process.Close();
-                                }
-                                catch (NullReferenceException)
-                                {
-                                    process.Refresh();
-                                    Console.WriteLine("Quantum NPCHARD - Попытка закрыть несуществующий торч");
-                                    runningProcesses = null;
-                                }
-                                catch (Win32Exception)
-                                {
-                                    process.Refresh();
-                                    Console.WriteLine("Quantum NPCHARD - Попытка закрыть несуществующий торч");
-                                    runningProcesses = null;
-                                }
-                                catch (InvalidOperationException)
-                                {
-                                    process.Refresh();
-                                    Console.WriteLine("Quantum NPCHARD - Попытка закрыть несуществующий торч");
-                                    runningProcesses = null;
-                                }
-                                finally
-                                {
-                                    Thread.Sleep(1000);
-                                }
-
-                                Console.WriteLine(exePath4 + " Закрыт - НЕТ ЛОГОВ \n Phase 2 не пройден");
-                                Thread.Sleep(10000);
-                                Process.Start(exePath4);
-                                Console.WriteLine(exePath4 + " Запуск / 5 минут ожидания данных");
-                                Thread.Sleep(360000);
-                            }
-                        }
-                    }
-
-                }
-                else
-                {
-                    Console.WriteLine("==================\n" + "Phase 1 не пройдена Q NPCHARD. Процесс не найден, либо он не запущен. Игнорируем и ждем проверку логов/сохранений");
-                    if (saveLOG4.LastWriteTime > DateTime.Now.AddMinutes(-2))
-                    {
-                        Console.WriteLine("Phase 2 OK \n" + saveLOG4.LastWriteTime + " " + saveLOG4.FullName);
-                        if (saveQ4.LastWriteTime > DateTime.Now.AddMinutes(-11))
-                        {
-                            Console.WriteLine("Phase 3 OK \n" + saveQ4.LastWriteTime + " " + saveQ4.FullName);
-                            Console.WriteLine("Quantum NPCHARD Ready / процесс не захвачен, работает в обходном методе");
-                            Thread.Sleep(10000);
-                        }
-                        else
-                        {
-                            string targetProcessPath = exePath4;
-                            string targetProcessName = "Torch.Server";
-
-                            Process[] runningProcesses = Process.GetProcesses();
-                            foreach (Process process in runningProcesses)
-                            {
-                                if (process.ProcessName == targetProcessName &&
-                                    process.MainModule != null &&
-                                    string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
-                                {
-                                    try
-                                    {
-                                        process.Refresh();
-                                        process.CloseMainWindow();
-                                        process.Close();
-                                    }
-                                    catch (NullReferenceException)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum NPCHARD - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    catch (Win32Exception)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum NPCHARD - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    catch (InvalidOperationException)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum NPCHARD - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    finally
-                                    {
-                                        Thread.Sleep(1000);
-                                    }
-
-                                    Console.WriteLine(exePath4 + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
-                                    Thread.Sleep(10000);
-                                    Process.Start(exePath4);
-                                    Console.WriteLine(exePath4 + " Запуск / 5 минут ожидания данных");
-                                    Thread.Sleep(360000);
-                                    process.Refresh();
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Quantum NPCHARD Start. НЕТ ЛОГОВ = СОХРАНЕНИЙ. Phase 1-2 не пройдены. 3я фаза не исполняется, отсутствует ЛОГ изменения");
-                        Process.Start(exePath4);
-                        Console.WriteLine(exePath4 + " Запуск / 5 минут ожидания данных");
-                        Thread.Sleep(360000);
-                    }
-                }
-            }
-            while (true);
-        }
-
-        public static void QuantumLobby()
-        {
-            do
-            {
-                Environment.CurrentDirectory = exePath5_2;
-                var saveLOG5 = new FileInfo(exePatch5Logs);
-                var saveQ5 = new FileInfo(exePatch5Save);
-                if (isRunningLOBBY == true)
-                {
-                    Console.WriteLine("==================\n" + "Phase 1 OK Q Lobby. Процесс существует");
-                    if (saveLOG5.LastWriteTime > DateTime.Now.AddMinutes(-2))
-                    {
-                        Console.WriteLine("Phase 2 OK \n" + saveLOG5.LastWriteTime + " " + saveLOG5.FullName);
-                        if (saveQ5.LastWriteTime > DateTime.Now.AddMinutes(-11))
-                        {
-                            Console.WriteLine("Phase 3 OK \n" + saveQ5.LastWriteTime + " " + saveQ5.FullName);
-                            Console.WriteLine("Quantum Lobby Ready");
-                            Thread.Sleep(10000);
-                        }
-                        else
-                        {
-                            string targetProcessPath = exePatchLobby;
-                            string targetProcessName = "Torch.Server";
-
-                            Process[] runningProcesses = Process.GetProcesses();
-                            foreach (Process process in runningProcesses)
-                            {
-                                if (process.ProcessName == targetProcessName &&
-                                    process.MainModule != null &&
-                                    string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
-                                {
-                                    try
-                                    {
-                                        process.Refresh();
-                                        process.CloseMainWindow();
-                                        process.Close();
-                                    }
-                                    catch (NullReferenceException)
-                                    {
-                                        if (isRunningLOBBY == false)
-                                        {
-                                            process.Refresh();
-                                            Console.WriteLine("Quantum Lobby - Попытка закрыть несуществующий торч");
-                                            runningProcesses = null;
-                                        }
-                                    }
-                                    catch (Win32Exception)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum Lobby - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    catch (InvalidOperationException)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum Lobby - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    finally
-                                    {
-                                        Thread.Sleep(1000);
-                                    }
-
-                                    Console.WriteLine(exePatchLobby + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
-                                    Thread.Sleep(10000);
-                                    Process.Start(exePatchLobby);
-                                    Console.WriteLine(exePatchLobby + " Запуск / 5 минут ожидания данных");
-                                    Thread.Sleep(360000);
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        string targetProcessPath = exePatchLobby;
-                        string targetProcessName = "Torch.Server";
-
-                        Process[] runningProcesses = Process.GetProcesses();
-                        foreach (Process process in runningProcesses)
-                        {
-                            if (process.ProcessName == targetProcessName &&
-                                process.MainModule != null &&
-                                string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
-                            {
-                                try
-                                {
-                                    process.Refresh();
-                                    process.CloseMainWindow();
-                                    process.Close();
-                                }
-                                catch (NullReferenceException)
-                                {
-                                    process.Refresh();
-                                    Console.WriteLine("Quantum Lobby - Попытка закрыть несуществующий торч");
-                                    runningProcesses = null;
-                                }
-                                catch (Win32Exception)
-                                {
-                                    process.Refresh();
-                                    Console.WriteLine("Quantum Lobby - Попытка закрыть несуществующий торч");
-                                    runningProcesses = null;
-                                }
-                                catch (InvalidOperationException)
-                                {
-                                    process.Refresh();
-                                    Console.WriteLine("Quantum Lobby - Попытка закрыть несуществующий торч");
-                                    runningProcesses = null;
-                                }
-                                finally
-                                {
-                                    Thread.Sleep(1000);
-                                }
-
-                                Console.WriteLine(exePath4 + " Закрыт - НЕТ ЛОГОВ \n Phase 2 не пройден");
-                                Thread.Sleep(10000);
-                                Process.Start(exePath4);
-                                Console.WriteLine(exePath4 + " Запуск / 5 минут ожидания данных");
-                                Thread.Sleep(360000);
-                            }
-                        }
-                    }
-
-                }
-                else
-                {
-                    Console.WriteLine("==================\n" + "Phase 1 не пройдена Q Lobby. Процесс не найден, либо он не запущен. Игнорируем и ждем проверку логов/сохранений");
-                    if (saveLOG5.LastWriteTime > DateTime.Now.AddMinutes(-2))
-                    {
-                        Console.WriteLine("Phase 2 OK \n" + saveLOG5.LastWriteTime + " " + saveLOG5.FullName);
-                        if (saveQ5.LastWriteTime > DateTime.Now.AddMinutes(-11))
-                        {
-                            Console.WriteLine("Phase 3 OK \n" + saveQ5.LastWriteTime + " " + saveQ5.FullName);
-                            Console.WriteLine("Quantum Lobby Ready / процесс не захвачен, работает в обходном методе");
-                            Thread.Sleep(10000);
-                        }
-                        else
-                        {
-                            string targetProcessPath = exePatchLobby;
-                            string targetProcessName = "Torch.Server";
-
-                            Process[] runningProcesses = Process.GetProcesses();
-                            foreach (Process process in runningProcesses)
-                            {
-                                if (process.ProcessName == targetProcessName &&
-                                    process.MainModule != null &&
-                                    string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
-                                {
-                                    try
-                                    {
-                                        process.Refresh();
-                                        process.CloseMainWindow();
-                                        process.Close();
-                                    }
-                                    catch (NullReferenceException)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum Lobby - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    catch (Win32Exception)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum Lobby - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    catch (InvalidOperationException)
-                                    {
-                                        process.Refresh();
-                                        Console.WriteLine("Quantum Lobby - Попытка закрыть несуществующий торч");
-                                        runningProcesses = null;
-                                    }
-                                    finally
-                                    {
-                                        Thread.Sleep(1000);
-                                    }
-
-                                    Console.WriteLine(exePatchLobby + " Закрыт - НЕТ СОХРАНЕНИЙ \n Phase 3 не пройден");
-                                    Thread.Sleep(10000);
-                                    Process.Start(exePatchLobby);
-                                    Console.WriteLine(exePatchLobby + " Запуск / 5 минут ожидания данных");
-                                    Thread.Sleep(360000);
-                                    process.Refresh();
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Quantum Lobby Start. НЕТ ЛОГОВ = СОХРАНЕНИЙ. Phase 1-2 не пройдены. 3я фаза не исполняется, отсутствует ЛОГ изменения");
-                        Process.Start(exePatchLobby);
-                        Console.WriteLine(exePatchLobby + " Запуск / 5 минут ожидания данных");
-                        Thread.Sleep(360000);
-                    }
-                }
-            }
-            while (true);
-        }
-
-        public static void Main2()
-        {
-            do
-            {
-                Process[] runningProcesses = Process.GetProcesses();
-                foreach (Process process in runningProcesses)
-                {
-                    process.Refresh();
+                    CheckQ1 = false;
                     Thread.Sleep(1000);
                 }
 
             }
-            while (true);
         }
+
+        public static void Quantum_II_Check_LOG()
+        {
+            while (true)
+            {
+                var LogQ2 = new FileInfo(exePath2Logs);
+                if (LogQ2.LastWriteTime > DateTime.Now.AddMinutes(-2))
+                {
+                    CheckQ2LOG = true;
+                }
+                else
+                {
+                    CheckQ2LOG = false;
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+        public static void Quantum_II_Check_SAVE()
+        {
+            while (true)
+            {
+                var SaveQ2 = new FileInfo(exePath2Save);
+                if (SaveQ2.LastWriteTime > DateTime.Now.AddMinutes(-11))
+                {
+                    CheckQ2SAVE = true;
+                }
+                else
+                {
+                    CheckQ2SAVE = false;
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+        public static void Quantum_NPC_Check()
+        {
+            while (true)
+            {
+                Thread.Sleep(100);
+                try
+                {
+                    bool isRunning3 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(p => p.MainModule.FileName.StartsWith(@"G:\TORCH-Server_14")) != default(Process);
+                    Process[] runningProcesses = Process.GetProcesses();
+                    foreach (Process process in runningProcesses)
+                    {
+                        process.Refresh();
+                    }
+
+                    if (isRunning3 == true)
+                    {
+                        CheckQ3 = true;
+                    }
+                    else
+                    {
+                        CheckQ3 = false;
+                    }
+                    Thread.Sleep(100);
+                }
+                catch (Win32Exception)
+                {
+                    Console.WriteLine("Потерян процесс");
+                }
+                finally
+                {
+                    CheckQ3 = false;
+                    Thread.Sleep(1000);
+                }
+            }
+        }
+
+        public static void Quantum_NPC_Check_LOG()
+        {
+            while (true)
+            {
+                var LogQ3 = new FileInfo(exePath3Logs);
+                if (LogQ3.LastWriteTime > DateTime.Now.AddMinutes(-2))
+                {
+                    CheckQ3LOG = true;
+                }
+                else
+                {
+                    CheckQ3LOG = false;
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+        public static void Quantum_NPC_Check_SAVE()
+        {
+            while (true)
+            {
+                var SaveQ3 = new FileInfo(exePath3Save);
+                if (SaveQ3.LastWriteTime > DateTime.Now.AddMinutes(-11))
+                {
+                    CheckQ3SAVE = true;
+                }
+                else
+                {
+                    CheckQ3SAVE = false;
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+        public static void Quantum_NPC_II_Check()
+        {
+            while (true)
+            {
+                Thread.Sleep(100);
+                try
+                {
+                    bool isRunning4 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(p => p.MainModule.FileName.StartsWith(@"G:\TORCH-Server-15")) != default(Process);
+                    Process[] runningProcesses = Process.GetProcesses();
+                    foreach (Process process in runningProcesses)
+                    {
+                        process.Refresh();
+                    }
+
+                    if (isRunning4 == true)
+                    {
+                        CheckQ4 = true;
+                    }
+                    else
+                    {
+                        CheckQ4 = false;
+                    }
+                    Thread.Sleep(100);
+                }
+                catch (Win32Exception)
+                {
+                    Console.WriteLine("Потерян процесс");
+                }
+                finally
+                {
+                    CheckQ4 = false;
+                    Thread.Sleep(1000);
+                }
+            }
+        }
+
+        public static void Quantum_NPC_II_Check_LOG()
+        {
+            while (true)
+            {
+                var LogQ4 = new FileInfo(exePath4Logs);
+                if (LogQ4.LastWriteTime > DateTime.Now.AddMinutes(-2))
+                {
+                    CheckQ4LOG = true;
+                }
+                else
+                {
+                    CheckQ4LOG = false;
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+        public static void Quantum_NPC_II_Check_SAVE()
+        {
+            while (true)
+            {
+                var SaveQ4 = new FileInfo(exePath4Save);
+                if (SaveQ4.LastWriteTime > DateTime.Now.AddMinutes(-11))
+                {
+                    CheckQ4SAVE = true;
+                }
+                else
+                {
+                    CheckQ4SAVE = false;
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+        public static void Quantum_LOB_Check()
+        {
+            while (true)
+            {
+                Thread.Sleep(100);
+                try
+                {
+                    bool isRunning5 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(p => p.MainModule.FileName.StartsWith(@"E:\TORCH-Server_13")) != default(Process);
+                    Process[] runningProcesses = Process.GetProcesses();
+                    foreach (Process process in runningProcesses)
+                    {
+                        process.Refresh();
+                    }
+
+                    if (isRunning5 == true)
+                    {
+                        CheckQ5 = true;
+                    }
+                    else
+                    {
+                        CheckQ5 = false;
+                    }
+                    Thread.Sleep(100);
+                }
+                catch (Win32Exception)
+                {
+                    Console.WriteLine("Потерян процесс");
+                }
+                finally
+                {
+                    CheckQ5 = false;
+                    Thread.Sleep(1000);
+                }
+            }
+        }
+
+        public static void Quantum_LOB_Check_LOG()
+        {
+            while (true)
+            {
+                var LogQ5 = new FileInfo(exePath5Logs);
+                if (LogQ5.LastWriteTime > DateTime.Now.AddMinutes(-2))
+                {
+                    CheckQ5LOG = true;
+                }
+                else
+                {
+                    CheckQ5LOG = false;
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+        public static void Quantum_LOB_Check_SAVE()
+        {
+            while (true)
+            {
+                var SaveQ5 = new FileInfo(exePath5Save);
+                if (SaveQ5.LastWriteTime > DateTime.Now.AddMinutes(-11))
+                {
+                    CheckQ5SAVE = true;
+                }
+                else
+                {
+                    CheckQ5SAVE = false;
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+        public static void Quantum_I_Killer()
+        {
+            while (true)
+            {
+                Thread.Sleep(500);
+                if (CheckQ1 == true)
+                {
+                    if (CheckQ1LOG == true)
+                    {
+                        Console.WriteLine(DateTime.Now + " Log Check Q1 GOOD");
+                        if (CheckQ1SAVE == true)
+                        {
+                            Console.WriteLine(DateTime.Now + " Save Check Q1 GOOD");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Save Check Q1 - NO SAVE");
+                            string targetProcessPath = TourchEXEPATCH1;
+                            string targetProcessName = "Torch.Server";
+                            Process[] runningProcesses = Process.GetProcesses();
+                            foreach (Process process in runningProcesses)
+                            {
+                                if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                {
+                                    try
+                                    {
+                                        process.Kill();
+                                    }
+                                    catch (NullReferenceException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (Win32Exception)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    finally
+                                    {
+                                        Process.Start(TourchEXEPATCH1);
+                                        Console.WriteLine(TourchEXEPATCH1 + " Запуск / 5 минут ожидания данных");
+                                        Thread.Sleep(360000);
+                                        process.Refresh();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Log Check Q1 - NO LOG");
+                                    Process.Start(TourchEXEPATCH1);
+                                    Console.WriteLine(TourchEXEPATCH1 + " Запуск / 5 минут ожидания данных");
+                                    Thread.Sleep(360000);
+                    }
+                }
+                else
+                {
+                    if (CheckQ1LOG == true)
+                    {
+                        Console.WriteLine(DateTime.Now + " Log Check Q1 GOOD");
+                        if (CheckQ1SAVE == true)
+                        {
+                            Console.WriteLine(DateTime.Now + " Save Check Q1 GOOD");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Save Check Q1 - NO SAVE");
+                            string targetProcessPath = TourchEXEPATCH1;
+                            string targetProcessName = "Torch.Server";
+
+                            Process[] runningProcesses = Process.GetProcesses();
+                            foreach (Process process in runningProcesses)
+                            {
+                                if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                {
+                                    try
+                                    {
+                                        process.Kill();
+                                    }
+                                    catch (NullReferenceException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (Win32Exception)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    finally
+                                    {
+                                        Process.Start(TourchEXEPATCH1);
+                                        Console.WriteLine(TourchEXEPATCH1 + " Запуск / 5 минут ожидания данных");
+                                        Thread.Sleep(360000);
+                                        process.Refresh();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Log Check Q1 - NO LOG");
+
+                                    Process.Start(TourchEXEPATCH1);
+                                    Console.WriteLine(TourchEXEPATCH1 + " Запуск / 5 минут ожидания данных");
+                                    Thread.Sleep(360000);
+                    }
+                }
+                Thread.Sleep(500);
+            }
+        }
+
+        public static void Quantum_II_Killer()
+        {
+            while (true)
+            {
+                Thread.Sleep(500);
+                if (CheckQ2 == true)
+                {
+                    if (CheckQ2LOG == true)
+                    {
+                        Console.WriteLine(DateTime.Now + " Log Check Q2 GOOD");
+                        if (CheckQ2SAVE == true)
+                        {
+                            Console.WriteLine(DateTime.Now + " Save Check Q2 GOOD");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Save Check Q2 - NO SAVE");
+                            string targetProcessPath = TourchEXEPATCH2;
+                            string targetProcessName = "Torch.Server";
+                            Process[] runningProcesses = Process.GetProcesses();
+                            foreach (Process process in runningProcesses)
+                            {
+                                if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                {
+                                    try
+                                    {
+                                        process.Kill();
+                                    }
+                                    catch (NullReferenceException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (Win32Exception)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    finally
+                                    {
+                                        Process.Start(TourchEXEPATCH2);
+                                        Console.WriteLine(TourchEXEPATCH2 + " Запуск / 5 минут ожидания данных");
+                                        Thread.Sleep(360000);
+                                        process.Refresh();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Log Check Q2 - NO LOG");
+                                    Process.Start(TourchEXEPATCH2);
+                                    Console.WriteLine(TourchEXEPATCH2 + " Запуск / 5 минут ожидания данных");
+                                    Thread.Sleep(360000);
+                    }
+                }
+                else
+                {
+                    if (CheckQ2LOG == true)
+                    {
+                        Console.WriteLine(DateTime.Now + " Log Check Q2 GOOD");
+                        if (CheckQ2SAVE == true)
+                        {
+                            Console.WriteLine(DateTime.Now + " Save Check Q2 GOOD");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Save Check Q2 - NO SAVE");
+                            string targetProcessPath = TourchEXEPATCH2;
+                            string targetProcessName = "Torch.Server";
+
+                            Process[] runningProcesses = Process.GetProcesses();
+                            foreach (Process process in runningProcesses)
+                            {
+                                if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                {
+                                    try
+                                    {
+                                        process.Kill();
+                                    }
+                                    catch (NullReferenceException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (Win32Exception)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    finally
+                                    {
+                                        Process.Start(TourchEXEPATCH2);
+                                        Console.WriteLine(TourchEXEPATCH2 + " Запуск / 5 минут ожидания данных");
+                                        Thread.Sleep(360000);
+                                        process.Refresh();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Log Check Q2 - NO LOG");
+                                    Process.Start(TourchEXEPATCH2);
+                                    Console.WriteLine(TourchEXEPATCH2 + " Запуск / 5 минут ожидания данных");
+                                    Thread.Sleep(360000);
+                    }
+                }
+                Thread.Sleep(500);
+            }
+        }
+
+        public static void Quantum_NPC_Killer()
+        {
+            while (true)
+            {
+                Thread.Sleep(500);
+                if (CheckQ3 == true)
+                {
+                    if (CheckQ3LOG == true)
+                    {
+                        Console.WriteLine(DateTime.Now + " Log Check QNPC GOOD");
+                        if (CheckQ3SAVE == true)
+                        {
+                            Console.WriteLine(DateTime.Now + " Save Check QNPC GOOD");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Save Check QNPC - NO SAVE");
+                            string targetProcessPath = TourchEXEPATCH3;
+                            string targetProcessName = "Torch.Server";
+                            Process[] runningProcesses = Process.GetProcesses();
+                            foreach (Process process in runningProcesses)
+                            {
+                                if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                {
+                                    try
+                                    {
+                                        process.Kill();
+                                    }
+                                    catch (NullReferenceException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (Win32Exception)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    finally
+                                    {
+                                        Process.Start(TourchEXEPATCH3);
+                                        Console.WriteLine(TourchEXEPATCH3 + " Запуск / 5 минут ожидания данных");
+                                        Thread.Sleep(360000);
+                                        process.Refresh();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Log Check QNPC - NO LOG");
+                        Process.Start(TourchEXEPATCH3);
+                        Console.WriteLine(TourchEXEPATCH3 + " Запуск / 5 минут ожидания данных");
+                        Thread.Sleep(360000);
+                    }
+                }
+                else
+                {
+                    if (CheckQ3LOG == true)
+                    {
+                        Console.WriteLine(DateTime.Now + " Log Check QNPC GOOD");
+                        if (CheckQ3SAVE == true)
+                        {
+                            Console.WriteLine(DateTime.Now + " Save Check QNPC GOOD");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Save Check QNPC - NO SAVE");
+                            string targetProcessPath = TourchEXEPATCH3;
+                            string targetProcessName = "Torch.Server";
+
+                            Process[] runningProcesses = Process.GetProcesses();
+                            foreach (Process process in runningProcesses)
+                            {
+                                if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                {
+                                    try
+                                    {
+                                        process.Kill();
+                                    }
+                                    catch (NullReferenceException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (Win32Exception)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    finally
+                                    {
+                                        Process.Start(TourchEXEPATCH3);
+                                        Console.WriteLine(TourchEXEPATCH3 + " Запуск / 5 минут ожидания данных");
+                                        Thread.Sleep(360000);
+                                        process.Refresh();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Log Check QNPC - NO LOG");
+
+                        Process.Start(TourchEXEPATCH3);
+                        Console.WriteLine(TourchEXEPATCH3 + " Запуск / 5 минут ожидания данных");
+                        Thread.Sleep(360000);
+                    }
+                }
+                Thread.Sleep(500);
+            }
+        }
+
+        public static void Quantum_NPC_II_Killer()
+        {
+            while (true)
+            {
+                Thread.Sleep(500);
+                if (CheckQ4 == true)
+                {
+                    if (CheckQ4LOG == true)
+                    {
+                        Console.WriteLine(DateTime.Now + " Log Check QNPCII GOOD");
+                        if (CheckQ4SAVE == true)
+                        {
+                            Console.WriteLine(DateTime.Now + " Save Check QNPCII GOOD");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Save Check QNPCII - NO SAVE");
+                            string targetProcessPath = TourchEXEPATCH4;
+                            string targetProcessName = "Torch.Server";
+                            Process[] runningProcesses = Process.GetProcesses();
+                            foreach (Process process in runningProcesses)
+                            {
+                                if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                {
+                                    try
+                                    {
+                                        process.Kill();
+                                    }
+                                    catch (NullReferenceException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (Win32Exception)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    finally
+                                    {
+                                        Process.Start(TourchEXEPATCH4);
+                                        Console.WriteLine(TourchEXEPATCH4 + " Запуск / 5 минут ожидания данных");
+                                        Thread.Sleep(360000);
+                                        process.Refresh();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Log Check QNPCII - NO LOG");
+                        Process.Start(TourchEXEPATCH4);
+                        Console.WriteLine(TourchEXEPATCH4 + " Запуск / 5 минут ожидания данных");
+                        Thread.Sleep(360000);
+                    }
+                }
+                else
+                {
+                    if (CheckQ4LOG == true)
+                    {
+                        Console.WriteLine(DateTime.Now + " Log Check QNPCII GOOD");
+                        if (CheckQ4SAVE == true)
+                        {
+                            Console.WriteLine(DateTime.Now + " Save Check QNPCII GOOD");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Save Check QNPCII - NO SAVE");
+                            string targetProcessPath = TourchEXEPATCH4;
+                            string targetProcessName = "Torch.Server";
+
+                            Process[] runningProcesses = Process.GetProcesses();
+                            foreach (Process process in runningProcesses)
+                            {
+                                if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                {
+                                    try
+                                    {
+                                        process.Kill();
+                                    }
+                                    catch (NullReferenceException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (Win32Exception)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    finally
+                                    {
+                                        Process.Start(TourchEXEPATCH4);
+                                        Console.WriteLine(TourchEXEPATCH4 + " Запуск / 5 минут ожидания данных");
+                                        Thread.Sleep(360000);
+                                        process.Refresh();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Log Check QNPCII - NO LOG");
+                        Process.Start(TourchEXEPATCH4);
+                        Console.WriteLine(TourchEXEPATCH4 + " Запуск / 5 минут ожидания данных");
+                        Thread.Sleep(360000);
+                    }
+                }
+                Thread.Sleep(500);
+            }
+        }
+
+        public static void Quantum_LOB_Killer()
+        {
+            while (true)
+            {
+                Thread.Sleep(500);
+                if (CheckQ5 == true)
+                {
+                    if (CheckQ5LOG == true)
+                    {
+                        Console.WriteLine(DateTime.Now + " Log Check LOB GOOD");
+                        if (CheckQ5SAVE == true)
+                        {
+                            Console.WriteLine(DateTime.Now + " Save Check LOB GOOD");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Save Check LOB - NO SAVE");
+                            string targetProcessPath = TourchEXEPATCH5;
+                            string targetProcessName = "Torch.Server";
+                            Process[] runningProcesses = Process.GetProcesses();
+                            foreach (Process process in runningProcesses)
+                            {
+                                if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                {
+                                    try
+                                    {
+                                        process.Kill();
+                                    }
+                                    catch (NullReferenceException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (Win32Exception)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    finally
+                                    {
+                                        Process.Start(TourchEXEPATCH5);
+                                        Console.WriteLine(TourchEXEPATCH5 + " Запуск / 5 минут ожидания данных");
+                                        Thread.Sleep(360000);
+                                        process.Refresh();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Log Check LOB - NO LOG");
+                        Process.Start(TourchEXEPATCH5);
+                        Console.WriteLine(TourchEXEPATCH5 + " Запуск / 5 минут ожидания данных");
+                        Thread.Sleep(360000);
+                    }
+                }
+                else
+                {
+                    if (CheckQ5LOG == true)
+                    {
+                        Console.WriteLine(DateTime.Now + " Log Check LOB GOOD");
+                        if (CheckQ5SAVE == true)
+                        {
+                            Console.WriteLine(DateTime.Now + " Save Check LOB GOOD");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Save Check LOB - NO SAVE");
+                            string targetProcessPath = TourchEXEPATCH5;
+                            string targetProcessName = "Torch.Server";
+
+                            Process[] runningProcesses = Process.GetProcesses();
+                            foreach (Process process in runningProcesses)
+                            {
+                                if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                {
+                                    try
+                                    {
+                                        process.Kill();
+                                    }
+                                    catch (NullReferenceException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (Win32Exception)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Thread.Sleep(10000);
+                                    }
+                                    finally
+                                    {
+                                        Process.Start(TourchEXEPATCH5);
+                                        Console.WriteLine(TourchEXEPATCH5 + " Запуск / 5 минут ожидания данных");
+                                        Thread.Sleep(360000);
+                                        process.Refresh();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Log Check LOB - NO LOG");
+                        Process.Start(TourchEXEPATCH5);
+                        Console.WriteLine(TourchEXEPATCH5 + " Запуск / 5 минут ожидания данных");
+                        Thread.Sleep(360000);
+                    }
+                }
+                Thread.Sleep(500);
+            }
+        }
+
     }
+
 
 }
