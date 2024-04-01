@@ -321,7 +321,7 @@ namespace AutoServers
             while (true)
             {
                 var LogQ3 = new FileInfo(exePath3Logs);
-                if (LogQ3.LastWriteTime > DateTime.Now.AddMinutes(-2))
+                if (LogQ3.LastWriteTime > DateTime.Now.AddMinutes(-3))
                 {
                     CheckQ3LOG = true;
                 }
@@ -391,7 +391,7 @@ namespace AutoServers
             while (true)
             {
                 var LogQ4 = new FileInfo(exePath4Logs);
-                if (LogQ4.LastWriteTime > DateTime.Now.AddMinutes(-2))
+                if (LogQ4.LastWriteTime > DateTime.Now.AddMinutes(-3))
                 {
                     CheckQ4LOG = true;
                 }
@@ -506,7 +506,57 @@ namespace AutoServers
                         }
                         else
                         {
-                            Console.WriteLine("Save Check Q1 - NO SAVE");
+                            try
+                            {
+                                Console.WriteLine("Save Check Q1 - NO SAVE");
+                                string targetProcessPath = TourchEXEPATCH1;
+                                string targetProcessName = "Torch.Server";
+                                Process[] runningProcesses = Process.GetProcesses();
+                                foreach (Process process in runningProcesses)
+                                {
+                                    if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                    {
+                                        try
+                                        {
+                                            process.Kill();
+                                        }
+                                        catch (NullReferenceException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (Win32Exception)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (InvalidOperationException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        finally
+                                        {
+                                            Process.Start(TourchEXEPATCH1);
+                                            Console.WriteLine(TourchEXEPATCH1 + " Запуск / 5 минут ожидания данных");
+                                            Thread.Sleep(360000);
+                                            process.Refresh();
+                                        }
+                                    }
+                                }
+                            }
+                            catch (InvalidOperationException)
+                            {
+                                Thread.Sleep(10000);
+                            }
+                            
+                        }
+                    }
+                    else
+                    {
+                        try
+                        {
+                            Console.WriteLine("Log Check Q1 - NO LOG");
                             string targetProcessPath = TourchEXEPATCH1;
                             string targetProcessName = "Torch.Server";
                             Process[] runningProcesses = Process.GetProcesses();
@@ -520,17 +570,17 @@ namespace AutoServers
                                     }
                                     catch (NullReferenceException)
                                     {
-                                        Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ Логов");
                                         Thread.Sleep(10000);
                                     }
                                     catch (Win32Exception)
                                     {
-                                        Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ Логов");
                                         Thread.Sleep(10000);
                                     }
                                     catch (InvalidOperationException)
                                     {
-                                        Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ Логов");
                                         Thread.Sleep(10000);
                                     }
                                     finally
@@ -543,13 +593,11 @@ namespace AutoServers
                                 }
                             }
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Log Check Q1 - NO LOG");
-                                    Process.Start(TourchEXEPATCH1);
-                                    Console.WriteLine(TourchEXEPATCH1 + " Запуск / 5 минут ожидания данных");
-                                    Thread.Sleep(360000);
+                        catch (InvalidOperationException)
+                        {
+                            Thread.Sleep(10000);
+                        }
+                        
                     }
                 }
                 else
@@ -563,43 +611,51 @@ namespace AutoServers
                         }
                         else
                         {
-                            Console.WriteLine("Save Check Q1 - NO SAVE");
-                            string targetProcessPath = TourchEXEPATCH1;
-                            string targetProcessName = "Torch.Server";
-
-                            Process[] runningProcesses = Process.GetProcesses();
-                            foreach (Process process in runningProcesses)
+                            try
                             {
-                                if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                Console.WriteLine("Save Check Q1 - NO SAVE");
+                                string targetProcessPath = TourchEXEPATCH1;
+                                string targetProcessName = "Torch.Server";
+
+                                Process[] runningProcesses = Process.GetProcesses();
+                                foreach (Process process in runningProcesses)
                                 {
-                                    try
+                                    if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
                                     {
-                                        process.Kill();
-                                    }
-                                    catch (NullReferenceException)
-                                    {
-                                        Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ СЕЙВОВ");
-                                        Thread.Sleep(10000);
-                                    }
-                                    catch (Win32Exception)
-                                    {
-                                        Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ СЕЙВОВ");
-                                        Thread.Sleep(10000);
-                                    }
-                                    catch (InvalidOperationException)
-                                    {
-                                        Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ СЕЙВОВ");
-                                        Thread.Sleep(10000);
-                                    }
-                                    finally
-                                    {
-                                        Process.Start(TourchEXEPATCH1);
-                                        Console.WriteLine(TourchEXEPATCH1 + " Запуск / 5 минут ожидания данных");
-                                        Thread.Sleep(360000);
-                                        process.Refresh();
+                                        try
+                                        {
+                                            process.Kill();
+                                        }
+                                        catch (NullReferenceException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (Win32Exception)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (InvalidOperationException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH1 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        finally
+                                        {
+                                            Process.Start(TourchEXEPATCH1);
+                                            Console.WriteLine(TourchEXEPATCH1 + " Запуск / 5 минут ожидания данных");
+                                            Thread.Sleep(360000);
+                                            process.Refresh();
+                                        }
                                     }
                                 }
                             }
+                            catch (InvalidOperationException)
+                            {
+                                Thread.Sleep(10000);
+                            }
+                            
                         }
                     }
                     else
@@ -631,7 +687,57 @@ namespace AutoServers
                         }
                         else
                         {
-                            Console.WriteLine("Save Check Q2 - NO SAVE");
+                            try
+                            {
+                                Console.WriteLine("Save Check Q2 - NO SAVE");
+                                string targetProcessPath = TourchEXEPATCH2;
+                                string targetProcessName = "Torch.Server";
+                                Process[] runningProcesses = Process.GetProcesses();
+                                foreach (Process process in runningProcesses)
+                                {
+                                    if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                    {
+                                        try
+                                        {
+                                            process.Kill();
+                                        }
+                                        catch (NullReferenceException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (Win32Exception)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (InvalidOperationException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        finally
+                                        {
+                                            Process.Start(TourchEXEPATCH2);
+                                            Console.WriteLine(TourchEXEPATCH2 + " Запуск / 5 минут ожидания данных");
+                                            Thread.Sleep(360000);
+                                            process.Refresh();
+                                        }
+                                    }
+                                }
+                            }
+                            catch (InvalidOperationException)
+                            {
+                                Thread.Sleep(10000);
+                            }
+                            
+                        }
+                    }
+                    else
+                    {
+                        try
+                        {
+                            Console.WriteLine("Log Check Q2 - NO LOG");
                             string targetProcessPath = TourchEXEPATCH2;
                             string targetProcessName = "Torch.Server";
                             Process[] runningProcesses = Process.GetProcesses();
@@ -645,17 +751,17 @@ namespace AutoServers
                                     }
                                     catch (NullReferenceException)
                                     {
-                                        Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ Логов");
                                         Thread.Sleep(10000);
                                     }
                                     catch (Win32Exception)
                                     {
-                                        Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ Логов");
                                         Thread.Sleep(10000);
                                     }
                                     catch (InvalidOperationException)
                                     {
-                                        Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ Логов");
                                         Thread.Sleep(10000);
                                     }
                                     finally
@@ -668,13 +774,10 @@ namespace AutoServers
                                 }
                             }
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Log Check Q2 - NO LOG");
-                                    Process.Start(TourchEXEPATCH2);
-                                    Console.WriteLine(TourchEXEPATCH2 + " Запуск / 5 минут ожидания данных");
-                                    Thread.Sleep(360000);
+                        catch (InvalidOperationException)
+                        {
+                            Thread.Sleep(10000);
+                        }
                     }
                 }
                 else
@@ -688,42 +791,49 @@ namespace AutoServers
                         }
                         else
                         {
-                            Console.WriteLine("Save Check Q2 - NO SAVE");
-                            string targetProcessPath = TourchEXEPATCH2;
-                            string targetProcessName = "Torch.Server";
-
-                            Process[] runningProcesses = Process.GetProcesses();
-                            foreach (Process process in runningProcesses)
+                            try
                             {
-                                if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                Console.WriteLine("Save Check Q2 - NO SAVE");
+                                string targetProcessPath = TourchEXEPATCH2;
+                                string targetProcessName = "Torch.Server";
+
+                                Process[] runningProcesses = Process.GetProcesses();
+                                foreach (Process process in runningProcesses)
                                 {
-                                    try
+                                    if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
                                     {
-                                        process.Kill();
-                                    }
-                                    catch (NullReferenceException)
-                                    {
-                                        Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ СЕЙВОВ");
-                                        Thread.Sleep(10000);
-                                    }
-                                    catch (Win32Exception)
-                                    {
-                                        Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ СЕЙВОВ");
-                                        Thread.Sleep(10000);
-                                    }
-                                    catch (InvalidOperationException)
-                                    {
-                                        Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ СЕЙВОВ");
-                                        Thread.Sleep(10000);
-                                    }
-                                    finally
-                                    {
-                                        Process.Start(TourchEXEPATCH2);
-                                        Console.WriteLine(TourchEXEPATCH2 + " Запуск / 5 минут ожидания данных");
-                                        Thread.Sleep(360000);
-                                        process.Refresh();
+                                        try
+                                        {
+                                            process.Kill();
+                                        }
+                                        catch (NullReferenceException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (Win32Exception)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (InvalidOperationException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH2 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        finally
+                                        {
+                                            Process.Start(TourchEXEPATCH2);
+                                            Console.WriteLine(TourchEXEPATCH2 + " Запуск / 5 минут ожидания данных");
+                                            Thread.Sleep(360000);
+                                            process.Refresh();
+                                        }
                                     }
                                 }
+                            }
+                            catch (InvalidOperationException)
+                            {
+                                Thread.Sleep(10000);
                             }
                         }
                     }
@@ -755,7 +865,56 @@ namespace AutoServers
                         }
                         else
                         {
-                            Console.WriteLine("Save Check QNPC - NO SAVE");
+                            try
+                            {
+                                Console.WriteLine("Save Check QNPC - NO SAVE");
+                                string targetProcessPath = TourchEXEPATCH3;
+                                string targetProcessName = "Torch.Server";
+                                Process[] runningProcesses = Process.GetProcesses();
+                                foreach (Process process in runningProcesses)
+                                {
+                                    if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                    {
+                                        try
+                                        {
+                                            process.Kill();
+                                        }
+                                        catch (NullReferenceException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (Win32Exception)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (InvalidOperationException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        finally
+                                        {
+                                            Process.Start(TourchEXEPATCH3);
+                                            Console.WriteLine(TourchEXEPATCH3 + " Запуск / 5 минут ожидания данных");
+                                            Thread.Sleep(360000);
+                                            process.Refresh();
+                                        }
+                                    }
+                                }
+                            }
+                            catch (InvalidOperationException)
+                            {
+                                Thread.Sleep(10000);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        try
+                        {
+                            Console.WriteLine("Save Check QNPC - NO LOGS");
                             string targetProcessPath = TourchEXEPATCH3;
                             string targetProcessName = "Torch.Server";
                             Process[] runningProcesses = Process.GetProcesses();
@@ -769,17 +928,17 @@ namespace AutoServers
                                     }
                                     catch (NullReferenceException)
                                     {
-                                        Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ Логов");
                                         Thread.Sleep(10000);
                                     }
                                     catch (Win32Exception)
                                     {
-                                        Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ Логов");
                                         Thread.Sleep(10000);
                                     }
                                     catch (InvalidOperationException)
                                     {
-                                        Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ Логов");
                                         Thread.Sleep(10000);
                                     }
                                     finally
@@ -792,14 +951,13 @@ namespace AutoServers
                                 }
                             }
                         }
+                        catch (InvalidOperationException)
+                        {
+                            Thread.Sleep(10000);
+                        }
+
                     }
-                    else
-                    {
-                        Console.WriteLine("Log Check QNPC - NO LOG");
-                        Process.Start(TourchEXEPATCH3);
-                        Console.WriteLine(TourchEXEPATCH3 + " Запуск / 5 минут ожидания данных");
-                        Thread.Sleep(360000);
-                    }
+
                 }
                 else
                 {
@@ -812,42 +970,49 @@ namespace AutoServers
                         }
                         else
                         {
-                            Console.WriteLine("Save Check QNPC - NO SAVE");
-                            string targetProcessPath = TourchEXEPATCH3;
-                            string targetProcessName = "Torch.Server";
-
-                            Process[] runningProcesses = Process.GetProcesses();
-                            foreach (Process process in runningProcesses)
+                            try
                             {
-                                if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                Console.WriteLine("Save Check QNPC - NO SAVE");
+                                string targetProcessPath = TourchEXEPATCH3;
+                                string targetProcessName = "Torch.Server";
+
+                                Process[] runningProcesses = Process.GetProcesses();
+                                foreach (Process process in runningProcesses)
                                 {
-                                    try
+                                    if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
                                     {
-                                        process.Kill();
-                                    }
-                                    catch (NullReferenceException)
-                                    {
-                                        Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ СЕЙВОВ");
-                                        Thread.Sleep(10000);
-                                    }
-                                    catch (Win32Exception)
-                                    {
-                                        Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ СЕЙВОВ");
-                                        Thread.Sleep(10000);
-                                    }
-                                    catch (InvalidOperationException)
-                                    {
-                                        Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ СЕЙВОВ");
-                                        Thread.Sleep(10000);
-                                    }
-                                    finally
-                                    {
-                                        Process.Start(TourchEXEPATCH3);
-                                        Console.WriteLine(TourchEXEPATCH3 + " Запуск / 5 минут ожидания данных");
-                                        Thread.Sleep(360000);
-                                        process.Refresh();
+                                        try
+                                        {
+                                            process.Kill();
+                                        }
+                                        catch (NullReferenceException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (Win32Exception)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (InvalidOperationException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH3 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        finally
+                                        {
+                                            Process.Start(TourchEXEPATCH3);
+                                            Console.WriteLine(TourchEXEPATCH3 + " Запуск / 5 минут ожидания данных");
+                                            Thread.Sleep(360000);
+                                            process.Refresh();
+                                        }
                                     }
                                 }
+                            }
+                            catch (InvalidOperationException)
+                            {
+                                Thread.Sleep(10000);
                             }
                         }
                     }
@@ -880,7 +1045,56 @@ namespace AutoServers
                         }
                         else
                         {
-                            Console.WriteLine("Save Check QNPCII - NO SAVE");
+                            try
+                            {
+                                Console.WriteLine("Save Check QNPCII - NO SAVE");
+                                string targetProcessPath = TourchEXEPATCH4;
+                                string targetProcessName = "Torch.Server";
+                                Process[] runningProcesses = Process.GetProcesses();
+                                foreach (Process process in runningProcesses)
+                                {
+                                    if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                    {
+                                        try
+                                        {
+                                            process.Kill();
+                                        }
+                                        catch (NullReferenceException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (Win32Exception)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (InvalidOperationException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        finally
+                                        {
+                                            Process.Start(TourchEXEPATCH4);
+                                            Console.WriteLine(TourchEXEPATCH4 + " Запуск / 5 минут ожидания данных");
+                                            Thread.Sleep(360000);
+                                            process.Refresh();
+                                        }
+                                    }
+                                }
+                            }
+                            catch (InvalidOperationException)
+                            {
+                                Thread.Sleep(10000);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        try
+                        {
+                            Console.WriteLine("Log Check QNPCII - NO LOG");
                             string targetProcessPath = TourchEXEPATCH4;
                             string targetProcessName = "Torch.Server";
                             Process[] runningProcesses = Process.GetProcesses();
@@ -894,17 +1108,17 @@ namespace AutoServers
                                     }
                                     catch (NullReferenceException)
                                     {
-                                        Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ Логов");
                                         Thread.Sleep(10000);
                                     }
                                     catch (Win32Exception)
                                     {
-                                        Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ Логов");
                                         Thread.Sleep(10000);
                                     }
                                     catch (InvalidOperationException)
                                     {
-                                        Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ Логов");
                                         Thread.Sleep(10000);
                                     }
                                     finally
@@ -917,13 +1131,10 @@ namespace AutoServers
                                 }
                             }
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Log Check QNPCII - NO LOG");
-                        Process.Start(TourchEXEPATCH4);
-                        Console.WriteLine(TourchEXEPATCH4 + " Запуск / 5 минут ожидания данных");
-                        Thread.Sleep(360000);
+                        catch (InvalidOperationException)
+                        {
+                            Thread.Sleep(10000);
+                        }
                     }
                 }
                 else
@@ -937,42 +1148,49 @@ namespace AutoServers
                         }
                         else
                         {
-                            Console.WriteLine("Save Check QNPCII - NO SAVE");
-                            string targetProcessPath = TourchEXEPATCH4;
-                            string targetProcessName = "Torch.Server";
-
-                            Process[] runningProcesses = Process.GetProcesses();
-                            foreach (Process process in runningProcesses)
+                            try
                             {
-                                if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                Console.WriteLine("Save Check QNPCII - NO SAVE");
+                                string targetProcessPath = TourchEXEPATCH4;
+                                string targetProcessName = "Torch.Server";
+
+                                Process[] runningProcesses = Process.GetProcesses();
+                                foreach (Process process in runningProcesses)
                                 {
-                                    try
+                                    if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
                                     {
-                                        process.Kill();
-                                    }
-                                    catch (NullReferenceException)
-                                    {
-                                        Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ СЕЙВОВ");
-                                        Thread.Sleep(10000);
-                                    }
-                                    catch (Win32Exception)
-                                    {
-                                        Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ СЕЙВОВ");
-                                        Thread.Sleep(10000);
-                                    }
-                                    catch (InvalidOperationException)
-                                    {
-                                        Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ СЕЙВОВ");
-                                        Thread.Sleep(10000);
-                                    }
-                                    finally
-                                    {
-                                        Process.Start(TourchEXEPATCH4);
-                                        Console.WriteLine(TourchEXEPATCH4 + " Запуск / 5 минут ожидания данных");
-                                        Thread.Sleep(360000);
-                                        process.Refresh();
+                                        try
+                                        {
+                                            process.Kill();
+                                        }
+                                        catch (NullReferenceException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (Win32Exception)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (InvalidOperationException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH4 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        finally
+                                        {
+                                            Process.Start(TourchEXEPATCH4);
+                                            Console.WriteLine(TourchEXEPATCH4 + " Запуск / 5 минут ожидания данных");
+                                            Thread.Sleep(360000);
+                                            process.Refresh();
+                                        }
                                     }
                                 }
+                            }
+                            catch (InvalidOperationException)
+                            {
+                                Thread.Sleep(10000);
                             }
                         }
                     }
@@ -1004,7 +1222,56 @@ namespace AutoServers
                         }
                         else
                         {
-                            Console.WriteLine("Save Check LOB - NO SAVE");
+                            try
+                            {
+                                Console.WriteLine("Save Check LOB - NO SAVE");
+                                string targetProcessPath = TourchEXEPATCH5;
+                                string targetProcessName = "Torch.Server";
+                                Process[] runningProcesses = Process.GetProcesses();
+                                foreach (Process process in runningProcesses)
+                                {
+                                    if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                    {
+                                        try
+                                        {
+                                            process.Kill();
+                                        }
+                                        catch (NullReferenceException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (Win32Exception)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (InvalidOperationException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        finally
+                                        {
+                                            Process.Start(TourchEXEPATCH5);
+                                            Console.WriteLine(TourchEXEPATCH5 + " Запуск / 5 минут ожидания данных");
+                                            Thread.Sleep(360000);
+                                            process.Refresh();
+                                        }
+                                    }
+                                }
+                            }
+                            catch (InvalidOperationException)
+                            {
+                                Thread.Sleep(10000);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        try
+                        {
+                            Console.WriteLine("Save Check LOB - NO Logs");
                             string targetProcessPath = TourchEXEPATCH5;
                             string targetProcessName = "Torch.Server";
                             Process[] runningProcesses = Process.GetProcesses();
@@ -1018,17 +1285,17 @@ namespace AutoServers
                                     }
                                     catch (NullReferenceException)
                                     {
-                                        Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ Логов");
                                         Thread.Sleep(10000);
                                     }
                                     catch (Win32Exception)
                                     {
-                                        Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ Логов");
                                         Thread.Sleep(10000);
                                     }
                                     catch (InvalidOperationException)
                                     {
-                                        Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ СЕЙВОВ");
+                                        Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ Логов");
                                         Thread.Sleep(10000);
                                     }
                                     finally
@@ -1041,13 +1308,10 @@ namespace AutoServers
                                 }
                             }
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Log Check LOB - NO LOG");
-                        Process.Start(TourchEXEPATCH5);
-                        Console.WriteLine(TourchEXEPATCH5 + " Запуск / 5 минут ожидания данных");
-                        Thread.Sleep(360000);
+                        catch (InvalidOperationException)
+                        {
+                            Thread.Sleep(10000);
+                        }
                     }
                 }
                 else
@@ -1061,42 +1325,49 @@ namespace AutoServers
                         }
                         else
                         {
-                            Console.WriteLine("Save Check LOB - NO SAVE");
-                            string targetProcessPath = TourchEXEPATCH5;
-                            string targetProcessName = "Torch.Server";
-
-                            Process[] runningProcesses = Process.GetProcesses();
-                            foreach (Process process in runningProcesses)
+                            try
                             {
-                                if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                Console.WriteLine("Save Check LOB - NO SAVE");
+                                string targetProcessPath = TourchEXEPATCH5;
+                                string targetProcessName = "Torch.Server";
+
+                                Process[] runningProcesses = Process.GetProcesses();
+                                foreach (Process process in runningProcesses)
                                 {
-                                    try
+                                    if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
                                     {
-                                        process.Kill();
-                                    }
-                                    catch (NullReferenceException)
-                                    {
-                                        Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ СЕЙВОВ");
-                                        Thread.Sleep(10000);
-                                    }
-                                    catch (Win32Exception)
-                                    {
-                                        Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ СЕЙВОВ");
-                                        Thread.Sleep(10000);
-                                    }
-                                    catch (InvalidOperationException)
-                                    {
-                                        Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ СЕЙВОВ");
-                                        Thread.Sleep(10000);
-                                    }
-                                    finally
-                                    {
-                                        Process.Start(TourchEXEPATCH5);
-                                        Console.WriteLine(TourchEXEPATCH5 + " Запуск / 5 минут ожидания данных");
-                                        Thread.Sleep(360000);
-                                        process.Refresh();
+                                        try
+                                        {
+                                            process.Kill();
+                                        }
+                                        catch (NullReferenceException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (Win32Exception)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (InvalidOperationException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH5 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        finally
+                                        {
+                                            Process.Start(TourchEXEPATCH5);
+                                            Console.WriteLine(TourchEXEPATCH5 + " Запуск / 5 минут ожидания данных");
+                                            Thread.Sleep(360000);
+                                            process.Refresh();
+                                        }
                                     }
                                 }
+                            }
+                            catch (InvalidOperationException)
+                            {
+                                Thread.Sleep(10000);
                             }
                         }
                     }
