@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Artika")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.1")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.1+59e01e9a2be46c9d281add0315cf68b4347fbbe8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.1+cf3654efaa39723627345deb592fde2700c1e027")]
 [assembly: System.Reflection.AssemblyProductAttribute("Auto Server Start")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Auto Server Start")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.1.1")]

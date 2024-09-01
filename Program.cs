@@ -41,12 +41,20 @@ namespace AutoServers
         public static string TourchEXEPATCH5 = @"E:\TORCH-Server_13\Torch.Server.exe";
         public static string exePathServer5 = @"E:\TORCH-Server_13";
 
+        public static string TourchEXEPATCH6 = @"E:\TORCH-Server_13\Torch.Server.exe";
+        public static string exePathServer6 = @"E:\TORCH-Server_13";
+
+        public static string TourchEXEPATCH7 = @"E:\TORCH-Server_13\Torch.Server.exe";
+        public static string exePathServer7 = @"E:\TORCH-Server_13";
+
         //Save
-        public static string exePath1Save = @"C:\SERVER9-HARD\Instance\Saves\Quantum\SANDBOX_0_0_0_.sbs";
-        public static string exePath2Save = @"G:\SERVER11-GALAXY2\Instance\Saves\Quantum\SANDBOX_0_0_0_.sbs";
-        public static string exePath3Save = @"G:\TORCH-Server_14\Instance\Saves\Quantum\SANDBOX_0_0_0_.sbs";
-        public static string exePath4Save = @"G:\TORCH-Server-15\Instance\Saves\QuantumNPC\SANDBOX_0_0_0_.sbs";
-        public static string exePath5Save = @"E:\TORCH-Server_13\Instance\Saves\Quantum\SANDBOX_0_0_0_.sbs";
+        public static string exePath1Save = @"C:\SERVER9-HARD\Instance\Saves\Orion\SANDBOX_0_0_0_.sbs";
+        public static string exePath2Save = @"G:\SERVER11-GALAXY2\Instance\Saves\Orion\SANDBOX_0_0_0_.sbs";
+        public static string exePath3Save = @"G:\TORCH-Server_14\Instance\Saves\Orion\SANDBOX_0_0_0_.sbs";
+        public static string exePath4Save = @"G:\TORCH-Server-15\Instance\Saves\Orion\SANDBOX_0_0_0_.sbs";
+        public static string exePath5Save = @"E:\TORCH-Server_13\Instance\Saves\Orion\SANDBOX_0_0_0_.sbs";
+        public static string exePath6Save = @"E:\TORCH-Server_13\Instance\Saves\Orion\SANDBOX_0_0_0_.sbs";
+        public static string exePath7Save = @"E:\TORCH-Server_13\Instance\Saves\Orion\SANDBOX_0_0_0_.sbs";
 
         //Logs
         public static string exePath1Logs = @"C:\SERVER9-HARD\Logs\Keen-Quantum1.log";
@@ -54,6 +62,8 @@ namespace AutoServers
         public static string exePath3Logs = @"G:\TORCH-Server_14\Logs\Keen-QuantumNPC.log";
         public static string exePath4Logs = @"G:\TORCH-Server-15\Logs\Keen-QuantumNPCII.log";
         public static string exePath5Logs = @"E:\TORCH-Server_13\Logs\Keen-QuantumLobby.log";
+        public static string exePath6Logs = @"G:\TORCH-Server-15\Logs\Keen-QuantumNPCII.log";
+        public static string exePath7Logs = @"E:\TORCH-Server_13\Logs\Keen-QuantumLobby.log";
 
         //DATA SAVE & LOGS
         public static DateTime dataTimeQ1Logs = File.GetLastWriteTime(exePath1Logs);
