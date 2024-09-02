@@ -41,11 +41,11 @@ namespace AutoServers
         public static string TourchEXEPATCH5 = @"E:\TORCH-Server_13\Torch.Server.exe";
         public static string exePathServer5 = @"E:\TORCH-Server_13";
 
-        public static string TourchEXEPATCH6 = @"E:\TORCH-Server_13\Torch.Server.exe";
-        public static string exePathServer6 = @"E:\TORCH-Server_13";
+        public static string TourchEXEPATCH6 = @"C:\SERVER10-NPC\Torch.Server.exe";
+        public static string exePathServer6 = @"C:\SERVER10-NPC";
 
-        public static string TourchEXEPATCH7 = @"E:\TORCH-Server_13\Torch.Server.exe";
-        public static string exePathServer7 = @"E:\TORCH-Server_13";
+        public static string TourchEXEPATCH7 = @"G:\TORCH-SERVER-16\Torch.Server.exe";
+        public static string exePathServer7 = @"G:\TORCH-SERVER-16";
 
         //Save
         public static string exePath1Save = @"C:\SERVER9-HARD\Instance\Saves\Orion\SANDBOX_0_0_0_.sbs";
@@ -53,17 +53,17 @@ namespace AutoServers
         public static string exePath3Save = @"G:\TORCH-Server_14\Instance\Saves\Orion\SANDBOX_0_0_0_.sbs";
         public static string exePath4Save = @"G:\TORCH-Server-15\Instance\Saves\Orion\SANDBOX_0_0_0_.sbs";
         public static string exePath5Save = @"E:\TORCH-Server_13\Instance\Saves\Orion\SANDBOX_0_0_0_.sbs";
-        public static string exePath6Save = @"E:\TORCH-Server_13\Instance\Saves\Orion\SANDBOX_0_0_0_.sbs";
-        public static string exePath7Save = @"E:\TORCH-Server_13\Instance\Saves\Orion\SANDBOX_0_0_0_.sbs";
+        public static string exePath6Save = @"C:\SERVER10-NPC\Instance\Saves\Orion\SANDBOX_0_0_0_.sbs";
+        public static string exePath7Save = @"G:\TORCH-SERVER-16\Instance\Saves\Orion\SANDBOX_0_0_0_.sbs";
 
         //Logs
-        public static string exePath1Logs = @"C:\SERVER9-HARD\Logs\Keen-Quantum1.log";
-        public static string exePath2Logs = @"G:\SERVER11-GALAXY2\Logs\Keen-Quantum2.log";
-        public static string exePath3Logs = @"G:\TORCH-Server_14\Logs\Keen-QuantumNPC.log";
-        public static string exePath4Logs = @"G:\TORCH-Server-15\Logs\Keen-QuantumNPCII.log";
-        public static string exePath5Logs = @"E:\TORCH-Server_13\Logs\Keen-QuantumLobby.log";
-        public static string exePath6Logs = @"G:\TORCH-Server-15\Logs\Keen-QuantumNPCII.log";
-        public static string exePath7Logs = @"E:\TORCH-Server_13\Logs\Keen-QuantumLobby.log";
+        public static string exePath1Logs = @"C:\SERVER9-HARD\Logs\Keen-OrionPVE.log";
+        public static string exePath2Logs = @"G:\SERVER11-GALAXY2\Logs\Keen-OrionSpace.log";
+        public static string exePath3Logs = @"G:\TORCH-Server_14\Logs\Keen-OrionS2.log";
+        public static string exePath4Logs = @"G:\TORCH-Server-15\Logs\Keen-OrionS3.log";
+        public static string exePath5Logs = @"E:\TORCH-Server_13\Logs\Keen-OrionLobby.log";
+        public static string exePath6Logs = @"C:\SERVER10-NPC\Logs\Keen-OrionS1.log";
+        public static string exePath7Logs = @"G:\TORCH-SERVER-16\Logs\Keen-OrionSPVP.log";
 
         //DATA SAVE & LOGS
         public static DateTime dataTimeQ1Logs = File.GetLastWriteTime(exePath1Logs);
@@ -80,76 +80,108 @@ namespace AutoServers
 
         public static DateTime dataTimeQ5Logs = File.GetLastWriteTime(exePath5Logs);
         public static DateTime dataTimeQ5Save = File.GetLastWriteTime(exePath5Save);
+
+        public static DateTime dataTimeQ6Logs = File.GetLastWriteTime(exePath6Logs);
+        public static DateTime dataTimeQ6Save = File.GetLastWriteTime(exePath6Save);
+
+        public static DateTime dataTimeQ7Logs = File.GetLastWriteTime(exePath7Logs);
+        public static DateTime dataTimeQ7Save = File.GetLastWriteTime(exePath7Save);
         //BOOLs
-        public static bool CheckQ1 = true || false;
-        public static bool CheckQ1LOG = true || false;
-        public static bool CheckQ1SAVE = true || false;
+        public static bool CheckO1 = true || false;
+        public static bool CheckO1LOG = true || false;
+        public static bool CheckO1SAVE = true || false;
 
-        public static bool CheckQ2 = true || false;
-        public static bool CheckQ2LOG = true || false;
-        public static bool CheckQ2SAVE = true || false;
+        public static bool CheckO2 = true || false;
+        public static bool CheckO2LOG = true || false;
+        public static bool CheckO2SAVE = true || false;
 
-        public static bool CheckQ3 = true || false;
-        public static bool CheckQ3LOG = true || false;
-        public static bool CheckQ3SAVE = true || false;
+        public static bool CheckO3 = true || false;
+        public static bool CheckO3LOG = true || false;
+        public static bool CheckO3SAVE = true || false;
 
-        public static bool CheckQ4 = true || false;
-        public static bool CheckQ4LOG = true || false;
-        public static bool CheckQ4SAVE = true || false;
+        public static bool CheckO4 = true || false;
+        public static bool CheckO4LOG = true || false;
+        public static bool CheckO4SAVE = true || false;
 
-        public static bool CheckQ5 = true || false;
-        public static bool CheckQ5LOG = true || false;
-        public static bool CheckQ5SAVE = true || false;
+        public static bool CheckO5 = true || false;
+        public static bool CheckO5LOG = true || false;
+        public static bool CheckO5SAVE = true || false;
+
+        public static bool CheckO6 = true || false;
+        public static bool CheckO6LOG = true || false;
+        public static bool CheckO6SAVE = true || false;
+
+        public static bool CheckO7 = true || false;
+        public static bool CheckO7LOG = true || false;
+        public static bool CheckO7SAVE = true || false;
 
         static void Main()
         {
-            Thread Q_I_C = new Thread(Quantum_I_Check);
-            Thread Q_I_CL = new Thread(Quantum_I_Check_LOG);
-            Thread Q_I_CS = new Thread(Quantum_I_Check_SAVE);
-            Thread Q_I_KILL = new Thread(Quantum_I_Killer);
+            Thread Q_I_C = new Thread(Orion_PVE_Check);
+            Thread Q_I_CL = new Thread(Orion_PVE_Check_LOG);
+            Thread Q_I_CS = new Thread(Orion_PVE_Check_SAVE);
+            Thread Q_I_KILL = new Thread(Orion_PVE_Killer);
             Q_I_C.Start();
             Q_I_CL.Start();
             Q_I_CS.Start();
             Q_I_KILL.Start();
 
-            Thread Q_II_C = new Thread(Quantum_II_Check);
-            Thread Q_II_CL = new Thread(Quantum_II_Check_LOG);
-            Thread Q_II_CS = new Thread(Quantum_II_Check_SAVE);
-            Thread Q_II_KILL = new Thread(Quantum_II_Killer);
+            Thread Q_II_C = new Thread(Orion_Space_Check);
+            Thread Q_II_CL = new Thread(Orion_Space_Check_LOG);
+            Thread Q_II_CS = new Thread(Orion_Space_Check_SAVE);
+            Thread Q_II_KILL = new Thread(Orion_Space_Killer);
             Q_II_C.Start();
             Q_II_CL.Start();
             Q_II_CS.Start();
             Q_II_KILL.Start();
 
-            Thread Q_NPC_C = new Thread(Quantum_NPC_Check);
-            Thread Q_NPC_CL = new Thread(Quantum_NPC_Check_LOG);
-            Thread Q_NPC_CS = new Thread(Quantum_NPC_Check_SAVE);
-            Thread Q_NPC_KILL = new Thread(Quantum_NPC_Killer);
+            Thread Q_NPC_C = new Thread(Orion_S2_Check);
+            Thread Q_NPC_CL = new Thread(Orion_S2_Check_LOG);
+            Thread Q_NPC_CS = new Thread(Orion_S2_Check_SAVE);
+            Thread Q_NPC_KILL = new Thread(Orion_S2_Killer);
             Q_NPC_C.Start();
             Q_NPC_CL.Start();
             Q_NPC_CS.Start();
             Q_NPC_KILL.Start();
 
-            Thread Q_NPC_II_C = new Thread(Quantum_NPC_II_Check);
-            Thread Q_NPC_II_CL = new Thread(Quantum_NPC_II_Check_LOG);
-            Thread Q_NPC_II_CS = new Thread(Quantum_NPC_II_Check_SAVE);
-            Thread Q_NPC_II_KILL = new Thread(Quantum_NPC_II_Killer);
+            Thread Q_NPC_II_C = new Thread(Orion_S3_Check);
+            Thread Q_NPC_II_CL = new Thread(Orion_S3_Check_LOG);
+            Thread Q_NPC_II_CS = new Thread(Orion_S3_Check_SAVE);
+            Thread Q_NPC_II_KILL = new Thread(Orion_S3_Killer);
             Q_NPC_II_C.Start();
             Q_NPC_II_CL.Start();
             Q_NPC_II_CS.Start();
             Q_NPC_II_KILL.Start();
 
-            Thread Q_LOB_C = new Thread(Quantum_LOB_Check);
-            Thread Q_LOB_CL = new Thread(Quantum_LOB_Check_LOG);
-            Thread Q_LOB_CS = new Thread(Quantum_LOB_Check_SAVE);
-            Thread Q_LOB_KILL = new Thread(Quantum_LOB_Killer);
+            Thread Q_LOB_C = new Thread(Orion_LOB_Check);
+            Thread Q_LOB_CL = new Thread(Orion_LOB_Check_LOG);
+            Thread Q_LOB_CS = new Thread(Orion_LOB_Check_SAVE);
+            Thread Q_LOB_KILL = new Thread(Orion_LOB_Killer);
             Q_LOB_C.Start();
             Q_LOB_CL.Start();
             Q_LOB_CS.Start();
             Q_LOB_KILL.Start();
+
+            Thread Q_S1_C = new Thread(Orion_S1_Check);
+            Thread Q_S1_CL = new Thread(Orion_S1_Check_LOG);
+            Thread Q_S1_CS = new Thread(Orion_S1_Check_SAVE);
+            Thread Q_S1_KILL = new Thread(Orion_S1_Killer);
+            Q_S1_C.Start();
+            Q_S1_CL.Start();
+            Q_S1_CS.Start();
+            Q_S1_KILL.Start();
+
+            Thread Q_SPVP_C = new Thread(Orion_SPVP_Killer);
+            Thread Q_SPVP_CL = new Thread(Orion_SPVP_Check_LOG);
+            Thread Q_SPVP_CS = new Thread(Orion_SPVP_Check_SAVE);
+            Thread Q_SPVP_KILL = new Thread(Orion_SPVP_Killer);
+            Q_SPVP_C.Start();
+            Q_SPVP_CL.Start();
+            Q_SPVP_CS.Start();
+            Q_SPVP_KILL.Start();
         }
 
-        public static void Quantum_I_Check()
+        public static void Orion_PVE_Check()
         {
             while (true)
             {
@@ -165,11 +197,11 @@ namespace AutoServers
 
                     if (isRunning == true)
                     {
-                        CheckQ1 = true;
+                        CheckO1 = true;
                     }
                     else
                     {
-                        CheckQ1 = false;
+                        CheckO1 = false;
                     }
                     Thread.Sleep(100);
                 }
@@ -179,47 +211,47 @@ namespace AutoServers
                 }
                 finally
                 {
-                    CheckQ1 = false;
+                    CheckO1 = false;
                     Thread.Sleep(1000);
                 }
             }
         }
 
-        public static void Quantum_I_Check_LOG()
+        public static void Orion_PVE_Check_LOG()
         {
             while (true)
             {
                 var LogQ1 = new FileInfo(exePath1Logs);
                 if (LogQ1.LastWriteTime > DateTime.Now.AddMinutes(-2))
                 {
-                    CheckQ1LOG = true;
+                    CheckO1LOG = true;
                 }
                 else
                 {
-                    CheckQ1LOG = false;
+                    CheckO1LOG = false;
                 }
                 Thread.Sleep(1000);
             }
         }
 
-        public static void Quantum_I_Check_SAVE()
+        public static void Orion_PVE_Check_SAVE()
         {
             while (true)
             {
                 var SaveQ1 = new FileInfo(exePath1Save);
                 if (SaveQ1.LastWriteTime > DateTime.Now.AddMinutes(-11))
                 {
-                    CheckQ1SAVE = true;
+                    CheckO1SAVE = true;
                 }
                 else
                 {
-                    CheckQ1SAVE = false;
+                    CheckO1SAVE = false;
                 }
                 Thread.Sleep(1000);
             }
         }
 
-        public static void Quantum_II_Check()
+        public static void Orion_Space_Check()
         {
             while (true)
             {
@@ -235,11 +267,11 @@ namespace AutoServers
 
                     if (isRunning2 == true)
                     {
-                        CheckQ2 = true;
+                        CheckO2 = true;
                     }
                     else
                     {
-                        CheckQ2 = false;
+                        CheckO2 = false;
                     }
                     Thread.Sleep(100);
                 }
@@ -249,48 +281,48 @@ namespace AutoServers
                 }
                 finally
                 {
-                    CheckQ1 = false;
+                    CheckO1 = false;
                     Thread.Sleep(1000);
                 }
 
             }
         }
 
-        public static void Quantum_II_Check_LOG()
+        public static void Orion_Space_Check_LOG()
         {
             while (true)
             {
                 var LogQ2 = new FileInfo(exePath2Logs);
                 if (LogQ2.LastWriteTime > DateTime.Now.AddMinutes(-2))
                 {
-                    CheckQ2LOG = true;
+                    CheckO2LOG = true;
                 }
                 else
                 {
-                    CheckQ2LOG = false;
+                    CheckO2LOG = false;
                 }
                 Thread.Sleep(1000);
             }
         }
 
-        public static void Quantum_II_Check_SAVE()
+        public static void Orion_Space_Check_SAVE()
         {
             while (true)
             {
                 var SaveQ2 = new FileInfo(exePath2Save);
                 if (SaveQ2.LastWriteTime > DateTime.Now.AddMinutes(-11))
                 {
-                    CheckQ2SAVE = true;
+                    CheckO2SAVE = true;
                 }
                 else
                 {
-                    CheckQ2SAVE = false;
+                    CheckO2SAVE = false;
                 }
                 Thread.Sleep(1000);
             }
         }
 
-        public static void Quantum_NPC_Check()
+        public static void Orion_S2_Check()
         {
             while (true)
             {
@@ -306,11 +338,11 @@ namespace AutoServers
 
                     if (isRunning3 == true)
                     {
-                        CheckQ3 = true;
+                        CheckO3 = true;
                     }
                     else
                     {
-                        CheckQ3 = false;
+                        CheckO3 = false;
                     }
                     Thread.Sleep(100);
                 }
@@ -320,47 +352,47 @@ namespace AutoServers
                 }
                 finally
                 {
-                    CheckQ3 = false;
+                    CheckO3 = false;
                     Thread.Sleep(1000);
                 }
             }
         }
 
-        public static void Quantum_NPC_Check_LOG()
+        public static void Orion_S2_Check_LOG()
         {
             while (true)
             {
                 var LogQ3 = new FileInfo(exePath3Logs);
                 if (LogQ3.LastWriteTime > DateTime.Now.AddMinutes(-3))
                 {
-                    CheckQ3LOG = true;
+                    CheckO3LOG = true;
                 }
                 else
                 {
-                    CheckQ3LOG = false;
+                    CheckO3LOG = false;
                 }
                 Thread.Sleep(1000);
             }
         }
 
-        public static void Quantum_NPC_Check_SAVE()
+        public static void Orion_S2_Check_SAVE()
         {
             while (true)
             {
                 var SaveQ3 = new FileInfo(exePath3Save);
                 if (SaveQ3.LastWriteTime > DateTime.Now.AddMinutes(-11))
                 {
-                    CheckQ3SAVE = true;
+                    CheckO3SAVE = true;
                 }
                 else
                 {
-                    CheckQ3SAVE = false;
+                    CheckO3SAVE = false;
                 }
                 Thread.Sleep(1000);
             }
         }
 
-        public static void Quantum_NPC_II_Check()
+        public static void Orion_S3_Check()
         {
             while (true)
             {
@@ -376,11 +408,11 @@ namespace AutoServers
 
                     if (isRunning4 == true)
                     {
-                        CheckQ4 = true;
+                        CheckO4 = true;
                     }
                     else
                     {
-                        CheckQ4 = false;
+                        CheckO4 = false;
                     }
                     Thread.Sleep(100);
                 }
@@ -390,47 +422,47 @@ namespace AutoServers
                 }
                 finally
                 {
-                    CheckQ4 = false;
+                    CheckO4 = false;
                     Thread.Sleep(1000);
                 }
             }
         }
 
-        public static void Quantum_NPC_II_Check_LOG()
+        public static void Orion_S3_Check_LOG()
         {
             while (true)
             {
                 var LogQ4 = new FileInfo(exePath4Logs);
                 if (LogQ4.LastWriteTime > DateTime.Now.AddMinutes(-3))
                 {
-                    CheckQ4LOG = true;
+                    CheckO4LOG = true;
                 }
                 else
                 {
-                    CheckQ4LOG = false;
+                    CheckO4LOG = false;
                 }
                 Thread.Sleep(1000);
             }
         }
 
-        public static void Quantum_NPC_II_Check_SAVE()
+        public static void Orion_S3_Check_SAVE()
         {
             while (true)
             {
                 var SaveQ4 = new FileInfo(exePath4Save);
                 if (SaveQ4.LastWriteTime > DateTime.Now.AddMinutes(-11))
                 {
-                    CheckQ4SAVE = true;
+                    CheckO4SAVE = true;
                 }
                 else
                 {
-                    CheckQ4SAVE = false;
+                    CheckO4SAVE = false;
                 }
                 Thread.Sleep(1000);
             }
         }
 
-        public static void Quantum_LOB_Check()
+        public static void Orion_LOB_Check()
         {
             while (true)
             {
@@ -446,11 +478,11 @@ namespace AutoServers
 
                     if (isRunning5 == true)
                     {
-                        CheckQ5 = true;
+                        CheckO5 = true;
                     }
                     else
                     {
-                        CheckQ5 = false;
+                        CheckO5 = false;
                     }
                     Thread.Sleep(100);
                 }
@@ -460,65 +492,169 @@ namespace AutoServers
                 }
                 finally
                 {
-                    CheckQ5 = false;
+                    CheckO5 = false;
                     Thread.Sleep(1000);
                 }
             }
         }
 
-        public static void Quantum_LOB_Check_LOG()
+        public static void Orion_LOB_Check_LOG()
         {
             while (true)
             {
                 var LogQ5 = new FileInfo(exePath5Logs);
                 if (LogQ5.LastWriteTime > DateTime.Now.AddMinutes(-2))
                 {
-                    CheckQ5LOG = true;
+                    CheckO5LOG = true;
                 }
                 else
                 {
-                    CheckQ5LOG = false;
+                    CheckO5LOG = false;
                 }
                 Thread.Sleep(1000);
             }
         }
 
-        public static void Quantum_LOB_Check_SAVE()
+        public static void Orion_LOB_Check_SAVE()
         {
             while (true)
             {
                 var SaveQ5 = new FileInfo(exePath5Save);
                 if (SaveQ5.LastWriteTime > DateTime.Now.AddMinutes(-11))
                 {
-                    CheckQ5SAVE = true;
+                    CheckO5SAVE = true;
                 }
                 else
                 {
-                    CheckQ5SAVE = false;
+                    CheckO5SAVE = false;
                 }
                 Thread.Sleep(1000);
             }
         }
 
-        public static void Quantum_I_Killer()
+        public static void Orion_S1_Check()
+        {
+            while (true)
+            {
+                Thread.Sleep(100);
+                try
+                {
+                    bool isRunning6 = Process.GetProcessesByName("Torch.Server").FirstOrDefault(p => p.MainModule.FileName.StartsWith(@"C:\SERVER10-NPC")) != default(Process);
+                    Process[] runningProcesses = Process.GetProcesses();
+                    foreach (Process process in runningProcesses)
+                    {
+                        process.Refresh();
+                    }
+
+                    if (isRunning6 == true)
+                    {
+                        CheckO6 = true;
+                    }
+                    else
+                    {
+                        CheckO6 = false;
+                    }
+                    Thread.Sleep(100);
+                }
+                catch (Win32Exception)
+                {
+                    Console.WriteLine("Потерян процесс");
+                }
+                finally
+                {
+                    CheckO5 = false;
+                    Thread.Sleep(1000);
+                }
+            }
+        }
+
+        public static void Orion_S1_Check_LOG()
+        {
+            while (true)
+            {
+                var LogQ6 = new FileInfo(exePath6Logs);
+                if (LogQ6.LastWriteTime > DateTime.Now.AddMinutes(-2))
+                {
+                    CheckO6LOG = true;
+                }
+                else
+                {
+                    CheckO6LOG = false;
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+        public static void Orion_S1_Check_SAVE()
+        {
+            while (true)
+            {
+                var SaveQ6 = new FileInfo(exePath6Save);
+                if (SaveQ6.LastWriteTime > DateTime.Now.AddMinutes(-11))
+                {
+                    CheckO6SAVE = true;
+                }
+                else
+                {
+                    CheckO6SAVE = false;
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+        public static void Orion_SPVP_Check_LOG()
+        {
+            while (true)
+            {
+                var LogQ7 = new FileInfo(exePath7Logs);
+                if (LogQ7.LastWriteTime > DateTime.Now.AddMinutes(-2))
+                {
+                    CheckO7LOG = true;
+                }
+                else
+                {
+                    CheckO7LOG = false;
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+        public static void Orion_SPVP_Check_SAVE()
+        {
+            while (true)
+            {
+                var SaveQ7 = new FileInfo(exePath7Save);
+                if (SaveQ7.LastWriteTime > DateTime.Now.AddMinutes(-11))
+                {
+                    CheckO7SAVE = true;
+                }
+                else
+                {
+                    CheckO7SAVE = false;
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+        public static void Orion_PVE_Killer()
         {
             while (true)
             {
                 Thread.Sleep(500);
-                if (CheckQ1 == true)
+                if (CheckO1 == true)
                 {
-                    if (CheckQ1LOG == true)
+                    if (CheckO1LOG == true)
                     {
-                        Console.WriteLine(DateTime.Now + " Log Check Q1 GOOD");
-                        if (CheckQ1SAVE == true)
+                        Console.WriteLine(DateTime.Now + " Log Check Orion PVE GOOD");
+                        if (CheckO1SAVE == true)
                         {
-                            Console.WriteLine(DateTime.Now + " Save Check Q1 GOOD");
+                            Console.WriteLine(DateTime.Now + " Save Check Orion PVE GOOD");
                         }
                         else
                         {
                             try
                             {
-                                Console.WriteLine("Save Check Q1 - NO SAVE");
+                                Console.WriteLine("Save Check Orion PVE - NO SAVE");
                                 string targetProcessPath = TourchEXEPATCH1;
                                 string targetProcessName = "Torch.Server";
                                 Process[] runningProcesses = Process.GetProcesses();
@@ -566,7 +702,7 @@ namespace AutoServers
                     {
                         try
                         {
-                            Console.WriteLine("Log Check Q1 - NO LOG");
+                            Console.WriteLine("Log Check Orion PVE - NO LOG");
                             string targetProcessPath = TourchEXEPATCH1;
                             string targetProcessName = "Torch.Server";
                             Process[] runningProcesses = Process.GetProcesses();
@@ -612,18 +748,18 @@ namespace AutoServers
                 }
                 else
                 {
-                    if (CheckQ1LOG == true)
+                    if (CheckO1LOG == true)
                     {
-                        Console.WriteLine(DateTime.Now + " Log Check Q1 GOOD");
-                        if (CheckQ1SAVE == true)
+                        Console.WriteLine(DateTime.Now + " Log Check Orion PVE GOOD");
+                        if (CheckO1SAVE == true)
                         {
-                            Console.WriteLine(DateTime.Now + " Save Check Q1 GOOD");
+                            Console.WriteLine(DateTime.Now + " Save Check Orion PVE GOOD");
                         }
                         else
                         {
                             try
                             {
-                                Console.WriteLine("Save Check Q1 - NO SAVE");
+                                Console.WriteLine("Save Check Orion PVE - NO SAVE");
                                 string targetProcessPath = TourchEXEPATCH1;
                                 string targetProcessName = "Torch.Server";
 
@@ -670,7 +806,7 @@ namespace AutoServers
                     }
                     else
                     {
-                        Console.WriteLine("Log Check Q1 - NO LOG");
+                        Console.WriteLine("Log Check Orion PVE - NO LOG");
 
                                     Process.Start(TourchEXEPATCH1);
                                     Console.WriteLine(TourchEXEPATCH1 + " Запуск / 5 минут ожидания данных");
@@ -681,25 +817,25 @@ namespace AutoServers
             }
         }
 
-        public static void Quantum_II_Killer()
+        public static void Orion_Space_Killer()
         {
             while (true)
             {
                 Thread.Sleep(500);
-                if (CheckQ2 == true)
+                if (CheckO2 == true)
                 {
-                    if (CheckQ2LOG == true)
+                    if (CheckO2LOG == true)
                     {
-                        Console.WriteLine(DateTime.Now + " Log Check Q2 GOOD");
-                        if (CheckQ2SAVE == true)
+                        Console.WriteLine(DateTime.Now + " Log Check Orion Space GOOD");
+                        if (CheckO2SAVE == true)
                         {
-                            Console.WriteLine(DateTime.Now + " Save Check Q2 GOOD");
+                            Console.WriteLine(DateTime.Now + " Save Check Orion Space GOOD");
                         }
                         else
                         {
                             try
                             {
-                                Console.WriteLine("Save Check Q2 - NO SAVE");
+                                Console.WriteLine("Save Check Orion Space - NO SAVE");
                                 string targetProcessPath = TourchEXEPATCH2;
                                 string targetProcessName = "Torch.Server";
                                 Process[] runningProcesses = Process.GetProcesses();
@@ -747,7 +883,7 @@ namespace AutoServers
                     {
                         try
                         {
-                            Console.WriteLine("Log Check Q2 - NO LOG");
+                            Console.WriteLine("Log Check Orion Space - NO LOG");
                             string targetProcessPath = TourchEXEPATCH2;
                             string targetProcessName = "Torch.Server";
                             Process[] runningProcesses = Process.GetProcesses();
@@ -792,18 +928,18 @@ namespace AutoServers
                 }
                 else
                 {
-                    if (CheckQ2LOG == true)
+                    if (CheckO2LOG == true)
                     {
-                        Console.WriteLine(DateTime.Now + " Log Check Q2 GOOD");
-                        if (CheckQ2SAVE == true)
+                        Console.WriteLine(DateTime.Now + " Log Check Orion Space GOOD");
+                        if (CheckO2SAVE == true)
                         {
-                            Console.WriteLine(DateTime.Now + " Save Check Q2 GOOD");
+                            Console.WriteLine(DateTime.Now + " Save Check Orion Space GOOD");
                         }
                         else
                         {
                             try
                             {
-                                Console.WriteLine("Save Check Q2 - NO SAVE");
+                                Console.WriteLine("Save Check Orion Space - NO SAVE");
                                 string targetProcessPath = TourchEXEPATCH2;
                                 string targetProcessName = "Torch.Server";
 
@@ -849,7 +985,7 @@ namespace AutoServers
                     }
                     else
                     {
-                        Console.WriteLine("Log Check Q2 - NO LOG");
+                        Console.WriteLine("Log Check Orion Space - NO LOG");
                                     Process.Start(TourchEXEPATCH2);
                                     Console.WriteLine(TourchEXEPATCH2 + " Запуск / 5 минут ожидания данных");
                                     Thread.Sleep(360000);
@@ -859,25 +995,25 @@ namespace AutoServers
             }
         }
 
-        public static void Quantum_NPC_Killer()
+        public static void Orion_S2_Killer()
         {
             while (true)
             {
                 Thread.Sleep(500);
-                if (CheckQ3 == true)
+                if (CheckO3 == true)
                 {
-                    if (CheckQ3LOG == true)
+                    if (CheckO3LOG == true)
                     {
-                        Console.WriteLine(DateTime.Now + " Log Check QNPC GOOD");
-                        if (CheckQ3SAVE == true)
+                        Console.WriteLine(DateTime.Now + " Log Check OrionS2 GOOD");
+                        if (CheckO3SAVE == true)
                         {
-                            Console.WriteLine(DateTime.Now + " Save Check QNPC GOOD");
+                            Console.WriteLine(DateTime.Now + " Save Check OrionS2 GOOD");
                         }
                         else
                         {
                             try
                             {
-                                Console.WriteLine("Save Check QNPC - NO SAVE");
+                                Console.WriteLine("Save Check OrionS2 - NO SAVE");
                                 string targetProcessPath = TourchEXEPATCH3;
                                 string targetProcessName = "Torch.Server";
                                 Process[] runningProcesses = Process.GetProcesses();
@@ -924,7 +1060,7 @@ namespace AutoServers
                     {
                         try
                         {
-                            Console.WriteLine("Save Check QNPC - NO LOGS");
+                            Console.WriteLine("Save Check OrionS2 - NO LOGS");
                             string targetProcessPath = TourchEXEPATCH3;
                             string targetProcessName = "Torch.Server";
                             Process[] runningProcesses = Process.GetProcesses();
@@ -971,18 +1107,18 @@ namespace AutoServers
                 }
                 else
                 {
-                    if (CheckQ3LOG == true)
+                    if (CheckO3LOG == true)
                     {
-                        Console.WriteLine(DateTime.Now + " Log Check QNPC GOOD");
-                        if (CheckQ3SAVE == true)
+                        Console.WriteLine(DateTime.Now + " Log Check OrionS2 GOOD");
+                        if (CheckO3SAVE == true)
                         {
-                            Console.WriteLine(DateTime.Now + " Save Check QNPC GOOD");
+                            Console.WriteLine(DateTime.Now + " Save Check OrionS2 GOOD");
                         }
                         else
                         {
                             try
                             {
-                                Console.WriteLine("Save Check QNPC - NO SAVE");
+                                Console.WriteLine("Save Check OrionS2 - NO SAVE");
                                 string targetProcessPath = TourchEXEPATCH3;
                                 string targetProcessName = "Torch.Server";
 
@@ -1028,7 +1164,7 @@ namespace AutoServers
                     }
                     else
                     {
-                        Console.WriteLine("Log Check QNPC - NO LOG");
+                        Console.WriteLine("Log Check OrionS2 - NO LOG"); //7см 4см (11,4см)
 
                         Process.Start(TourchEXEPATCH3);
                         Console.WriteLine(TourchEXEPATCH3 + " Запуск / 5 минут ожидания данных");
@@ -1039,25 +1175,25 @@ namespace AutoServers
             }
         }
 
-        public static void Quantum_NPC_II_Killer()
+        public static void Orion_S3_Killer()
         {
             while (true)
             {
                 Thread.Sleep(500);
-                if (CheckQ4 == true)
+                if (CheckO4 == true)
                 {
-                    if (CheckQ4LOG == true)
+                    if (CheckO4LOG == true)
                     {
-                        Console.WriteLine(DateTime.Now + " Log Check QNPCII GOOD");
-                        if (CheckQ4SAVE == true)
+                        Console.WriteLine(DateTime.Now + " Log Check OrionS3 GOOD");
+                        if (CheckO4SAVE == true)
                         {
-                            Console.WriteLine(DateTime.Now + " Save Check QNPCII GOOD");
+                            Console.WriteLine(DateTime.Now + " Save Check OrionS3 GOOD");
                         }
                         else
                         {
                             try
                             {
-                                Console.WriteLine("Save Check QNPCII - NO SAVE");
+                                Console.WriteLine("Save Check OrionS3 - NO SAVE");
                                 string targetProcessPath = TourchEXEPATCH4;
                                 string targetProcessName = "Torch.Server";
                                 Process[] runningProcesses = Process.GetProcesses();
@@ -1104,7 +1240,7 @@ namespace AutoServers
                     {
                         try
                         {
-                            Console.WriteLine("Log Check QNPCII - NO LOG");
+                            Console.WriteLine("Log Check OrionS3 - NO LOG");
                             string targetProcessPath = TourchEXEPATCH4;
                             string targetProcessName = "Torch.Server";
                             Process[] runningProcesses = Process.GetProcesses();
@@ -1149,18 +1285,18 @@ namespace AutoServers
                 }
                 else
                 {
-                    if (CheckQ4LOG == true)
+                    if (CheckO4LOG == true)
                     {
-                        Console.WriteLine(DateTime.Now + " Log Check QNPCII GOOD");
-                        if (CheckQ4SAVE == true)
+                        Console.WriteLine(DateTime.Now + " Log Check OrionS3 GOOD");
+                        if (CheckO4SAVE == true)
                         {
-                            Console.WriteLine(DateTime.Now + " Save Check QNPCII GOOD");
+                            Console.WriteLine(DateTime.Now + " Save Check OrionS3 GOOD");
                         }
                         else
                         {
                             try
                             {
-                                Console.WriteLine("Save Check QNPCII - NO SAVE");
+                                Console.WriteLine("Save Check OrionS3 - NO SAVE");
                                 string targetProcessPath = TourchEXEPATCH4;
                                 string targetProcessName = "Torch.Server";
 
@@ -1206,7 +1342,7 @@ namespace AutoServers
                     }
                     else
                     {
-                        Console.WriteLine("Log Check QNPCII - NO LOG");
+                        Console.WriteLine("Log Check OrionS3 - NO LOG");
                         Process.Start(TourchEXEPATCH4);
                         Console.WriteLine(TourchEXEPATCH4 + " Запуск / 5 минут ожидания данных");
                         Thread.Sleep(360000);
@@ -1216,17 +1352,17 @@ namespace AutoServers
             }
         }
 
-        public static void Quantum_LOB_Killer()
+        public static void Orion_LOB_Killer()
         {
             while (true)
             {
                 Thread.Sleep(500);
-                if (CheckQ5 == true)
+                if (CheckO5 == true)
                 {
-                    if (CheckQ5LOG == true)
+                    if (CheckO5LOG == true)
                     {
                         Console.WriteLine(DateTime.Now + " Log Check LOB GOOD");
-                        if (CheckQ5SAVE == true)
+                        if (CheckO5SAVE == true)
                         {
                             Console.WriteLine(DateTime.Now + " Save Check LOB GOOD");
                         }
@@ -1326,10 +1462,10 @@ namespace AutoServers
                 }
                 else
                 {
-                    if (CheckQ5LOG == true)
+                    if (CheckO5LOG == true)
                     {
                         Console.WriteLine(DateTime.Now + " Log Check LOB GOOD");
-                        if (CheckQ5SAVE == true)
+                        if (CheckO5SAVE == true)
                         {
                             Console.WriteLine(DateTime.Now + " Save Check LOB GOOD");
                         }
@@ -1386,6 +1522,362 @@ namespace AutoServers
                         Console.WriteLine("Log Check LOB - NO LOG");
                         Process.Start(TourchEXEPATCH5);
                         Console.WriteLine(TourchEXEPATCH5 + " Запуск / 5 минут ожидания данных");
+                        Thread.Sleep(360000);
+                    }
+                }
+                Thread.Sleep(500);
+            }
+        }
+
+
+
+        public static void Orion_S1_Killer()
+        {
+            while (true)
+            {
+                Thread.Sleep(500);
+                if (CheckO6 == true)
+                {
+                    if (CheckO6LOG == true)
+                    {
+                        Console.WriteLine(DateTime.Now + " Log Check Orion S1 GOOD");
+                        if (CheckO6SAVE == true)
+                        {
+                            Console.WriteLine(DateTime.Now + " Save Check Orion S1 GOOD");
+                        }
+                        else
+                        {
+                            try
+                            {
+                                Console.WriteLine("Save Check Orion S1 - NO SAVE");
+                                string targetProcessPath = TourchEXEPATCH6;
+                                string targetProcessName = "Torch.Server";
+                                Process[] runningProcesses = Process.GetProcesses();
+                                foreach (Process process in runningProcesses)
+                                {
+                                    if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                    {
+                                        try
+                                        {
+                                            process.Kill();
+                                        }
+                                        catch (NullReferenceException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH6 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (Win32Exception)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH6 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (InvalidOperationException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH6 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        finally
+                                        {
+                                            Process.Start(TourchEXEPATCH6);
+                                            Console.WriteLine(TourchEXEPATCH6 + " Запуск / 5 минут ожидания данных");
+                                            Thread.Sleep(360000);
+                                            process.Refresh();
+                                        }
+                                    }
+                                }
+                            }
+                            catch (InvalidOperationException)
+                            {
+                                Thread.Sleep(10000);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        try
+                        {
+                            Console.WriteLine("Save Check Orion S1 - NO Logs");
+                            string targetProcessPath = TourchEXEPATCH6;
+                            string targetProcessName = "Torch.Server";
+                            Process[] runningProcesses = Process.GetProcesses();
+                            foreach (Process process in runningProcesses)
+                            {
+                                if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                {
+                                    try
+                                    {
+                                        process.Kill();
+                                    }
+                                    catch (NullReferenceException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH6 + " Закрыт - НЕТ Логов");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (Win32Exception)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH6 + " Закрыт - НЕТ Логов");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH6 + " Закрыт - НЕТ Логов");
+                                        Thread.Sleep(10000);
+                                    }
+                                    finally
+                                    {
+                                        Process.Start(TourchEXEPATCH6);
+                                        Console.WriteLine(TourchEXEPATCH6 + " Запуск / 5 минут ожидания данных");
+                                        Thread.Sleep(360000);
+                                        process.Refresh();
+                                    }
+                                }
+                            }
+                        }
+                        catch (InvalidOperationException)
+                        {
+                            Thread.Sleep(10000);
+                        }
+                    }
+                }
+                else
+                {
+                    if (CheckO6LOG == true)
+                    {
+                        Console.WriteLine(DateTime.Now + " Log Check Orion S1 GOOD");
+                        if (CheckO6SAVE == true)
+                        {
+                            Console.WriteLine(DateTime.Now + " Save Check Orion S1 GOOD");
+                        }
+                        else
+                        {
+                            try
+                            {
+                                Console.WriteLine("Save Check Orion S1 - NO SAVE");
+                                string targetProcessPath = TourchEXEPATCH6;
+                                string targetProcessName = "Torch.Server";
+
+                                Process[] runningProcesses = Process.GetProcesses();
+                                foreach (Process process in runningProcesses)
+                                {
+                                    if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                    {
+                                        try
+                                        {
+                                            process.Kill();
+                                        }
+                                        catch (NullReferenceException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH6 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (Win32Exception)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH6 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (InvalidOperationException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH6 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        finally
+                                        {
+                                            Process.Start(TourchEXEPATCH6);
+                                            Console.WriteLine(TourchEXEPATCH6 + " Запуск / 5 минут ожидания данных");
+                                            Thread.Sleep(360000);
+                                            process.Refresh();
+                                        }
+                                    }
+                                }
+                            }
+                            catch (InvalidOperationException)
+                            {
+                                Thread.Sleep(10000);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Log Check Orion S1 - NO LOG");
+                        Process.Start(TourchEXEPATCH6);
+                        Console.WriteLine(TourchEXEPATCH6 + " Запуск / 5 минут ожидания данных");
+                        Thread.Sleep(360000);
+                    }
+                }
+                Thread.Sleep(500);
+            }
+        }
+
+        public static void Orion_SPVP_Killer()
+        {
+            while (true)
+            {
+                Thread.Sleep(500);
+                if (CheckO7 == true)
+                {
+                    if (CheckO7LOG == true)
+                    {
+                        Console.WriteLine(DateTime.Now + " Log Check Orion SPVP GOOD");
+                        if (CheckO7SAVE == true)
+                        {
+                            Console.WriteLine(DateTime.Now + " Save Check Orion SPVP GOOD");
+                        }
+                        else
+                        {
+                            try
+                            {
+                                Console.WriteLine("Save Check Orion SPVP - NO SAVE");
+                                string targetProcessPath = TourchEXEPATCH7;
+                                string targetProcessName = "Torch.Server";
+                                Process[] runningProcesses = Process.GetProcesses();
+                                foreach (Process process in runningProcesses)
+                                {
+                                    if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                    {
+                                        try
+                                        {
+                                            process.Kill();
+                                        }
+                                        catch (NullReferenceException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH7 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (Win32Exception)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH7 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (InvalidOperationException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH7 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        finally
+                                        {
+                                            Process.Start(TourchEXEPATCH7);
+                                            Console.WriteLine(TourchEXEPATCH7 + " Запуск / 5 минут ожидания данных");
+                                            Thread.Sleep(360000);
+                                            process.Refresh();
+                                        }
+                                    }
+                                }
+                            }
+                            catch (InvalidOperationException)
+                            {
+                                Thread.Sleep(10000);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        try
+                        {
+                            Console.WriteLine("Save Check Orion SPVP - NO Logs");
+                            string targetProcessPath = TourchEXEPATCH7;
+                            string targetProcessName = "Torch.Server";
+                            Process[] runningProcesses = Process.GetProcesses();
+                            foreach (Process process in runningProcesses)
+                            {
+                                if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                {
+                                    try
+                                    {
+                                        process.Kill();
+                                    }
+                                    catch (NullReferenceException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH7 + " Закрыт - НЕТ Логов");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (Win32Exception)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH7 + " Закрыт - НЕТ Логов");
+                                        Thread.Sleep(10000);
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Console.WriteLine(TourchEXEPATCH7 + " Закрыт - НЕТ Логов");
+                                        Thread.Sleep(10000);
+                                    }
+                                    finally
+                                    {
+                                        Process.Start(TourchEXEPATCH7);
+                                        Console.WriteLine(TourchEXEPATCH7 + " Запуск / 5 минут ожидания данных");
+                                        Thread.Sleep(360000);
+                                        process.Refresh();
+                                    }
+                                }
+                            }
+                        }
+                        catch (InvalidOperationException)
+                        {
+                            Thread.Sleep(10000);
+                        }
+                    }
+                }
+                else
+                {
+                    if (CheckO7LOG == true)
+                    {
+                        Console.WriteLine(DateTime.Now + " Log Check Orion SPVP GOOD");
+                        if (CheckO7SAVE == true)
+                        {
+                            Console.WriteLine(DateTime.Now + " Save Check Orion SPVP GOOD");
+                        }
+                        else
+                        {
+                            try
+                            {
+                                Console.WriteLine("Save Check Orion SPVP - NO SAVE");
+                                string targetProcessPath = TourchEXEPATCH7;
+                                string targetProcessName = "Torch.Server";
+
+                                Process[] runningProcesses = Process.GetProcesses();
+                                foreach (Process process in runningProcesses)
+                                {
+                                    if (process.ProcessName == targetProcessName && process.MainModule != null && string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                    {
+                                        try
+                                        {
+                                            process.Kill();
+                                        }
+                                        catch (NullReferenceException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH7 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (Win32Exception)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH7 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        catch (InvalidOperationException)
+                                        {
+                                            Console.WriteLine(TourchEXEPATCH7 + " Закрыт - НЕТ СЕЙВОВ");
+                                            Thread.Sleep(10000);
+                                        }
+                                        finally
+                                        {
+                                            Process.Start(TourchEXEPATCH7);
+                                            Console.WriteLine(TourchEXEPATCH7 + " Запуск / 5 минут ожидания данных");
+                                            Thread.Sleep(360000);
+                                            process.Refresh();
+                                        }
+                                    }
+                                }
+                            }
+                            catch (InvalidOperationException)
+                            {
+                                Thread.Sleep(10000);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Log Check Orion SPVP - NO LOG");
+                        Process.Start(TourchEXEPATCH7);
+                        Console.WriteLine(TourchEXEPATCH7 + " Запуск / 5 минут ожидания данных");
                         Thread.Sleep(360000);
                     }
                 }
